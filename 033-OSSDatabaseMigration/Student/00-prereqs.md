@@ -37,7 +37,7 @@ chmod +x ./*.sh
 ```
 #### NOTE: deploying the Pizzeria application will take several minutes
 
-- Optional but highly recommended - run the [shell script](../Resources/HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh` 
+- Optional but highly recommended - run the [shell script](./Resources/HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh` 
 This will block public access to your on-premise databases.
 You should preferably run this on your local machine, not Azure Cloud Shell. The script uses Azure CLI.
 
