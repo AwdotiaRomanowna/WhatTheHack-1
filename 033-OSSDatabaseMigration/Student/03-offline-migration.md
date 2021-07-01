@@ -14,6 +14,9 @@ In the offline migration approach, your application can tolerate some downtime t
 ## Success Criteria
 
 * You have chosen the proper PaaS database service at an appropriate service tier based on sizing analysis
+* You have created a MySQL and Postgres database for the application in Azure PaaS
+* You have created a separate "Wth" database in MySQL and Postres
+* You have a user called "contosoapp" with the same privilege it has on the source database it created
 * Demonstrate to your coach that the "on-premises" Pizzeria application data has migrated successfully to Azure
 
 ## Hints
