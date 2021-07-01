@@ -52,7 +52,7 @@ You should preferably run this on your local machine, not Azure Cloud Shell. The
 * You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working
 * You have database management tools installed and are able to connect to the Postgres and MySQL databases for the Pizzeria app
 * Once connected to the database, you expand "wth" database used for the application. 
-* You explore the user contosoapp that owns the application objects and the security privileges it has. In Later challenges, this user and the database needs to be created on the target database
+* Explore the user contosoapp that owns the application objects and the security privileges it has. In later challenges, this user and the database needs to be created on the target database.
 
 ## References
 
