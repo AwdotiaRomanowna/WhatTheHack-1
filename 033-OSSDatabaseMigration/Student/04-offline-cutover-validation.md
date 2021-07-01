@@ -33,7 +33,7 @@ helm upgrade --install postgres-contosopizza ./ContosoPizza -f ./ContosoPizza/va
 ## Success Criteria
 
 * You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working with the configuration change
-* You can update the value of column  "name" in table "ingredient" for any row. e.g. Change the name from "Onion" to "Shallot" and on the app, click on 
+* You can update the value of column  "name" in table "ingredient" for any row. Change the name from "Onion" to "Shallot" and on the app, click on 
 start building any pizza, and on the next page, click "Veggies" and at the lower left corner, see that "Shallot" appears with the picture of the onion.
 
 
