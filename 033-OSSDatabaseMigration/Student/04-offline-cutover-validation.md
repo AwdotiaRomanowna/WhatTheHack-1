@@ -14,20 +14,22 @@ appConfig:
   dataSourceUser: "user name goes here" # your database username goes here
   dataSourcePassword: "Password goes here!" # your database password goes here
 ```
-Once you make your changes, you will need to run helm upgrade command to see the changes reflected:
+Once you make your changes, you will need to run helm upgrade command again to see them in the Pizzeria web application:
+
+For MySQL: 
 
 ```bash
 
 helm upgrade --install mysql-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-mysql.yaml
-
+kubectl -n contosoappmysql rollout restart deployment contosopizza
 ```
 
-To deploy the app backed by PostgreSQL, run the following command after you have edited the values file to match your desired database type:
+For PostgreSQL: 
 
 ```bash
 
 helm upgrade --install postgres-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-postgresql.yaml
-
+kubectl -n contosoapppostgres rollout restart deployment contosopizza
 ```
 
 ## Success Criteria
