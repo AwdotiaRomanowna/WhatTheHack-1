@@ -7,14 +7,22 @@
 * The attendees should check the links given in Reference section about Limitations to figure out if the source database can be moved to Azure. Note - we only need to check the wth database that hosts the application data
 
 
+
+
 * To connect to Postgres, run this from Azure cloud shell or from your computer to connect using psql commandline. Alternately you can use a tool like Azure Data Studio or Pgadmin or DBeaver
+
+
 
 
     ```bash
     kubectl -n postgresql exec deploy/postgres -it -- /usr/bin/psql -U postgres
     ```
     
+    
+    
 * The SQL below lists the Postgres version, database size and the loaded extensions
+
+
  
    
    ```sql
@@ -25,13 +33,21 @@
    SELECT name, default_version, installed_version, left(comment,80) As comment FROM pg_available_extensions WHERE installed_version IS NOT NULL ORDER BY name;
    ```
    
+   
+   
    * To connect to MySQL, run this from Azure cloud shell or from your computer to connect using psql commandline. Alternately you can use a tool like MySQL Workbench or DBeaver
+
+
 
     ```bash
     kubectl -n mysql exec deploy/mysql -it -- /usr/bin/mysql -u root -p
     ```
 
+
+
     * In MySQL check the db version, what engine tables we have and total database size ( tables only, excluding index )
+
+
     
     ```sql
       select version () ;
