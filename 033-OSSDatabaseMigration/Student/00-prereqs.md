@@ -25,7 +25,7 @@ In this challenge you'll be setting up your environment so that you can complete
     -  If you want to run on Azure cloud shell, launch azure cloud shell and click on the icon with  to upload the Resources.zip file to cloud shell.
       
 -   Step 3:
--   
+ 
     - Unzip the resources.zip file.
 
   
