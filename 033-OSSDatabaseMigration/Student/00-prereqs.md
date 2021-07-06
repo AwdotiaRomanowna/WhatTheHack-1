@@ -40,9 +40,11 @@ chmod +x ./create-cluster.sh
 
 ```
 
-#### NOTE: creating the cluster will take several minutes
+#### NOTE: creating the cluster will take several ( ~ 10 ) minutes
 
-- Now you will deploy the Pizzeria application and its associated PostgreSQL and MySQL databases
+-   Step 5:
+
+    - Deploy the Pizzeria applications twice - one using PostgreSQL and another using MySQL database.
 
 ```bash
 cd ~/Resources/HelmCharts/ContosoPizza
@@ -50,10 +52,19 @@ chmod +x ./*.sh
 ./deploy-pizza.sh
 
 ```
-#### NOTE: deploying the Pizzeria application will take several minutes
 
-- Optional but highly recommended - run the [shell script](./Resources/HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh` 
-This will block public access to your on-premise databases.
+#### NOTE: deploying the Pizzeria application will take several ( ~ 5 ) minutes
+
+-   Step 6:
+
+    - Once the applications are deployed, you will get messages like this. Click on both the links to ensure you are able to see the pizza websites. Notice that they run on            different ip address and different ports.
+
+      Pizzeria app on MySQL is ready at http://some_ip_address:8081/pizzeria
+      Pizzeria app on PostgreSQL is ready at http://some_other_ip_address:8082/pizzeria
+
+- Step 7:
+    - Optional but highly recommended - run the [shell script](./Resources/HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh) in the files given to you for this hack at     this path: `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh` 
+  This will block public access to your on-premise databases.
 You should preferably run this on your local machine, not Azure Cloud Shell. The script uses Azure CLI.
 
   Alternately, if you do run this script from Azure Cloud Shell, open up the script file and edit the line with "myip" 
