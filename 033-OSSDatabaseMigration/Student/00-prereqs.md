@@ -16,8 +16,22 @@ In this challenge you'll be setting up your environment so that you can complete
     - Another option is to use a single tool for both MySQL and PostgreSQL - like [dbeaver](https://dbeaver.io/download/). 
     - Visual Studio Code (optional)
 
-- Important first step:
-    -  Within Azure Cloud Shell, or your computer's shell copy the required [resources](https://microsoft.sharepoint.com/:u:/t/SparkOSSDBMigrationCoach/ESYsppGKy2BJr28_bs537h8BEJApa15b8IQ9ARQ-SUir0g?e=bAWo4e) folder for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. Run this command to setup the environment:
+- Step 1:
+    -   Download the required [resources](https://microsoft.sharepoint.com/:u:/t/SparkOSSDBMigrationCoach/ESYsppGKy2BJr28_bs537h8BEJApa15b8IQ9ARQ-SUir0g?e=bAWo4e) folder for this hack into your computer. 
+    
+-  Step 2: 
+    -  Decide if you want to run this hackathon on your own computer or in cloud shell. If you want to run on your own computer, in an Mac/Linux/WSL environment
+     
+    -  If you want to run on Azure cloud shell, launch azure cloud shell and click on the icon with  to upload the Resources.zip file to cloud shell.
+      
+-   Step 3:
+-   
+    - Unzip the resources.zip file.
+
+  
+-   Step 4:
+
+    -  Run the following command to setup the environment:
 
 ```bash
 cd ~/Resources/ARM-Templates/KubernetesCluster
