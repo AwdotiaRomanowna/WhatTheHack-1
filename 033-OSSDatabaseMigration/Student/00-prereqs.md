@@ -60,6 +60,7 @@ chmod +x ./*.sh
     - Once the applications are deployed, you will get messages like this. Click on both the links to ensure you are able to see the pizza websites. Notice that they run on            different ip address and different ports.
 
       Pizzeria app on MySQL is ready at http://some_ip_address:8081/pizzeria
+      
       Pizzeria app on PostgreSQL is ready at http://some_other_ip_address:8082/pizzeria
 
 - Step 7:
