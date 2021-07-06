@@ -63,11 +63,10 @@ chmod +x ./*.sh
       Pizzeria app on PostgreSQL is ready at http://some_other_ip_address:8082/pizzeria
 
 - Step 7:
-    - Optional but highly recommended - run the [shell script](./Resources/HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh) in the files given to you for this hack at     this path: `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh` 
-  This will block public access to your on-premise databases.
-You should preferably run this on your local machine, not Azure Cloud Shell. The script uses Azure CLI.
+    - Run the [shell script](./Resources/HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh` 
+  This will block public access to your on-premise databases and allow access only from your computer.
 
-  Alternately, if you do run this script from Azure Cloud Shell, open up the script file and edit the line with "myip" 
+#### NOTE:  This script is meant to run from your computer, not azure cloud shell. However if you are running this hack from azure cloud shell, you need to  open up the script file and edit the line with "myip" with your ip address. In that case, you can get your computer's ip address by launching a browser to https://ifconfig.me 
  
 - Please refer to the [AKS cheatsheet](./K8s_cheetsheet.md) for a reference of running handy AKS commands to validate your environment. You will need this throughout the hack.
 
