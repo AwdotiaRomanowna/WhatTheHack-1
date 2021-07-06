@@ -68,7 +68,7 @@ chmod +x ./*.sh
 
 #### NOTE:  This script is meant to run from your computer, not azure cloud shell. However if you are running this hack from azure cloud shell, you need to  open up the script file and edit the line with "myip" with your ip address. You can get your computer's ip address by launching a browser to https://ifconfig.me 
  
-- Please refer to the [AKS cheatsheet](./K8s_cheetsheet.md) for a reference of running handy AKS commands to validate your environment. You will need this throughout the hack.
+- **Please refer to the [AKS cheatsheet](./K8s_cheetsheet.md) for a reference of running handy AKS commands to validate your environment. You will need this throughout the hack.
 
 
 ## Success Criteria
