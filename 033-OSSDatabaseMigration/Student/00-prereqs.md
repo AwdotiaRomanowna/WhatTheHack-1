@@ -12,15 +12,15 @@ In this challenge you'll be setting up your environment so that you can complete
 
 - Install the recommended toolset:
     - To connect to PostgreSQL database, use [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) or [pgAdmin](https://www.pgadmin.org/)
-    - [MySQL Workbench](https://www.mysql.com/products/workbench/) (note: if you get an error about not having the Visual Studio C++ 2019 Redistributable on your machine when installing, refer to this [note](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0)
-    - Another option is to use a single tool for both MySQL and PostgreSQL - like [dbeaver](https://dbeaver.io/download/). 
+    - [MySQL Workbench](https://www.mysql.com/products/workbench/) (note: if you get an error about not having the Visual Studio C++ 2019 Redistributable on your machine when installing, refer to this [note](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) 
     - Visual Studio Code (optional)
+    - [Az Cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) - only if ##you plan to run this hackathon from your computer instead of azure cloud shell. 
 
 - Step 1:
     -   Download the required [resources](https://microsoft.sharepoint.com/:u:/t/SparkOSSDBMigrationCoach/ESYsppGKy2BJr28_bs537h8BEJApa15b8IQ9ARQ-SUir0g?e=bAWo4e) folder for this hack into your computer. 
     
 -  Step 2: 
-    -  Decide if you want to run this hackathon on your own computer or in cloud shell. If you want to run on your own computer, you will need Linux/WSL on Windows or Mac shell environment.
+    -  Decide if you want to run this hackathon on your in Azure cloud shell. If you want to run on your own computer, you will need Linux/WSL on Windows or Mac shell environment.
      
     -  If you want to run on Azure cloud shell, launch azure cloud shell and click on the icon with  to upload the Resources.zip file to cloud shell.
       
