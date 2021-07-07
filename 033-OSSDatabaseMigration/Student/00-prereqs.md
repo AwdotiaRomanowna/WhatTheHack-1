@@ -14,15 +14,15 @@ In this challenge you'll be setting up your environment so that you can complete
     - To connect to PostgreSQL database, use [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) or [pgAdmin](https://www.pgadmin.org/)
     - [MySQL Workbench](https://www.mysql.com/products/workbench/) (note: if you get an error about not having the Visual Studio C++ 2019 Redistributable on your machine when installing, refer to this [note](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) 
     - Visual Studio Code (optional)
-    - [Az Cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) - only if ##you plan to run this hackathon from your computer instead of azure cloud shell. 
+    - [Az Cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) - only if you plan to run this hackathon from your computer instead of azure cloud shell. 
 
 - Step 1:
     -   Download the required [resources](https://microsoft.sharepoint.com/:u:/t/SparkOSSDBMigrationCoach/ESYsppGKy2BJr28_bs537h8BEJApa15b8IQ9ARQ-SUir0g?e=bAWo4e) folder for this hack into your computer. 
     
 -  Step 2: 
-    -  Decide if you want to run this hackathon on your in Azure cloud shell. If you want to run on your own computer, you will need Linux/WSL on Windows or Mac shell environment.
-     
-    -  If you want to run on Azure cloud shell, launch azure cloud shell and click on the icon with  to upload the Resources.zip file to cloud shell.
+    -  Decide if you want to run this hackathon on your in Azure cloud shell. The cloud shell has the pre-requisites toolset installed - AZ cli and Postgres and MySQL cli client. 
+    
+    -  Alternately, if you have WSL on Windows or any unix shell, or a Mac you can run it from your computer too. In that case please make sure you have az cli installed. 
       
 -   Step 3:
  
@@ -67,7 +67,7 @@ chmod +x ./*.sh
     - Run the [shell script](./Resources/HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh` 
   This will block public access to your on-premise databases and allow access only from your computer.
 
-#### NOTE:  This script is meant to run from your computer, not azure cloud shell. However if you are running this hack from azure cloud shell, you need to  open up the script file and edit the line with "myip" with your ip address. You can get your computer's ip address by launching a browser to https://ifconfig.me 
+#### NOTE:  This script will restrict access to your Azure MySQL or Postgres database only from the shell where you are running this script from. Please note that if you are running in Azure cloud shell and your shell times out because of inactivity, once you launch your session again it will create a new session and a new ip address. You will need to run the script again then. In addition, if you are running this hack from azure cloud shell, and you want to connect to the Azure databases from your computer using gui tools like MySQL Workbench or Pgadmin, you need to  open up the script file and edit the line with "myip" with your ip address. You can get your computer's ip address by launching a browser to https://ifconfig.me 
  
 
 ## References
