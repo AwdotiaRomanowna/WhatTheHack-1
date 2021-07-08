@@ -44,7 +44,7 @@ chmod +x ./create-cluster.sh
 
 -   Step 5:
 
-    - Deploy the Pizzeria applications twice - one using PostgreSQL and another using MySQL database.
+    - Deploy the Pizzeria applications - it will create two web applications one using PostgreSQL and another using MySQL database.
 
 ```bash
 cd ~/Resources/HelmCharts/ContosoPizza
