@@ -20,7 +20,7 @@ In this challenge you'll be setting up your environment so that you can complete
     -   Download the required resources,zip file for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. 
     
 -  Step 2: 
-    -  Decide if you want to run this hackathon on your in Azure cloud shell. The cloud shell has the pre-requisites toolset installed - AZ cli and PostgreSQL and MySQL CLI client. 
+    -  Decide if you want to run this hackathon on your in Azure cloud shell. The cloud shell has the pre-requisites toolset installed - AZ cli and PostgreSQL and MySQL CLI client. If you run in cloud shell, upload the Resources.zip file to cloud shell.
     
     -  Alternately, if you have WSL on Windows or any unix shell, or a Mac you can run it from your computer too. In that case please make sure you have Azure CLI installed. 
       
