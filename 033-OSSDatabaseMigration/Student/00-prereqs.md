@@ -17,7 +17,7 @@ In this challenge you'll be setting up your environment so that you can complete
     - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) - only if you plan to run this hackathon from your computer instead of Azure Cloud Shell. 
 
 - Step 1:
-    -   Download the required [resources](https://microsoft.sharepoint.com/:u:/t/SparkOSSDBMigrationCoach/ESYsppGKy2BJr28_bs537h8BEJApa15b8IQ9ARQ-SUir0g?e=bAWo4e) folder for this hack into your computer. 
+    -   Download the required resources for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. Run this command to setup the environment: download the required resources for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. 
     
 -  Step 2: 
     -  Decide if you want to run this hackathon on your in Azure cloud shell. The cloud shell has the pre-requisites toolset installed - AZ cli and PostgreSQL and MySQL CLI client. 
