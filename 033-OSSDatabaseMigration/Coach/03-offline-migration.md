@@ -4,9 +4,38 @@
 
 ## Coach Tips
 
-When creating Azure DB for PostgreSQL, create it in the GP or MO tier - as Basic tier does not support Private Link
+1. When creating Azure DB for PostgreSQL/MySQL, create it in the GP or MO tier - as Basic tier does not support Private Link, required in a future challenge.
 
-The attendees will not be able to connect to Azure DB for PostgreSQL/MySQL from within the container by default. In order to connect, they will need to add the public IP address to the DB firewall. This is the IP address the container is using for egress to connect to Azure DB. One way to find it is to do this:
+2. If the attendees want to connect to Azure DB for PostgreSQL/MySQL from within the AKS PostgreSQL/MySQL, they have two optoins.
+
+a)  Either under connection security, check the box for "Allow access to Azure services" 
+
+or
+
+b) Add the public IP address of the container to the DB firewall.  This is the IP address the container is using for egress to connect to Azure DB. In order to find that IP address, you can try to connect to the Azure DB from your container and the error message will tell you the IP.  
+
+```bash
+
+kubectl -n mysql exec deploy/mysql -it -- bash
+
+root@mysql-78cf679f8f-5f6xz:/# mysql -h <your-server>.mysql.database.azure.com -P 3306 -u <username>@<your-server> -p
+....
+Client with IP address '104.42.36.255' is not allowed to connect to this MySQL server.
+
+```
+
+Similarly for Postgres
+
+```bash
+ kubectl -n postgresql exec deploy/postgres -it -- bash
+root@postgres-64786b846-shnm9:/# psql -h <your-server>.postgres.database.azure.com -p 5432 -U <username>@<your-server> -d postgres
+psql: FATAL:  no pg_hba.conf entry for host "104.42.36.255", user "serveradmin", database "postgres", SSL on
+
+```
+
+Another way to find the container egress IP address is to run this from the container.
+
+
 
 ```bash
 apt update
@@ -14,39 +43,51 @@ apt install curl
 curl ifconfig.me
 ```
 
-There are other 3rd party tools similar to MySQL Workbench and dbeaver which the attendees may choose if they are familiar with them. There is also [mydumper/myloader](https://centminmod.com/mydumper.html) to use for MySQL
+3. There are other 3rd party tools similar to MySQL Workbench, PgAdmin and dbeaver which the attendees may choose to migrate the data if they are familiar with them. There is also [mydumper/myloader](https://centminmod.com/mydumper.html) to use for MySQL
 
-Another way is to login to the database container and then try to launch a connection to the Azure DB for MySQL or PostgreSQL. It will fail with a firewall error that will reveal the address. In the example below, pgtarget is the PostgreSQL server name, pgtarget2 is the MySQL servername and both has serveradmin as the admin user created on Azure:
 
-```bash
+4. Before migrating the data, they need to create an empty database and create the application user.The SQL command to create the database is given below if you are using cli
 
-kubectl -n postgresql exec deploy/postgres -it -- bash
-root@postgres-64786b846-khk28:/#  psql -h pgtarget.postgres.database.azure.com -p 5432 -U serveradmin@pgtarget -d postgres
 
-```
 
-Before migrating the data, they need to create an empty database and create the application user. Connect to the database container first and from there connect to Azure DB.
-Alternatively, connect to the Azure DB using Azure Data Studio or Pgadmin tool. The example below connects to the PostgreSQL on-premises database container. You can also run it from Azure Cloud Shell: 
-
-```bash
-kubectl -n postgresql exec deploy/postgres -it -- bash
-psql -h pgtarget.postgres.database.azure.com -p 5432 -U serveradmin@pgtarget -d postgres
+```sql
 create database wth ;
 ```
 
-This is the equivalent for MySQL:
-```bash
-kubectl -n mysql exec deploy/mysql -it -- bash
-mysql -h mytarget2.mysql.database.azure.com -P 3306 -u serveradmin@mytarget2 -pPassword@servername
-create database wth ;
-```
+5. After creating the database you need to create the database user "contosoapp" that will own the database objects. Connect using the dba account and then create the user and grant it privileges:
 
-Create the pizzeria application database user and the database wth:
+Postgres Command -->
 
 ```sql
 CREATE ROLE CONTOSOAPP WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD 'OCPHack8';
-create database wth ;
 ```
+
+MySQL command --->
+
+```sql
+
+create user if not exists 'contosoapp'   identified by 'OCPHack8' ;
+
+grant ALL PRIVILEGES ON wth.* TO contosoapp ;
+grant process, select on *.*  to contosoapp ;
+
+-- check privileges already granted
+
+show grants for contosoapp ;
+
+```
+
+
+Grants for contosoapp should report
+
+
+```sql
+GRANT SELECT, PROCESS ON *.* TO 'contosoapp'@'%'
+GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'
+```
+
+
+6. Next step is to run a database export from the source database. 
 
 * PostgreSQL command to do offline export to exportdir directory and import offline to Azure DB for PostgreSQL. First bash into the PostgreSQL container and then use these two commands:
 
@@ -63,17 +104,7 @@ Privileges required to run MySQL export on the source database - connect as root
 grant ALL PRIVILEGES ON wth.* TO contosoapp ;
 grant process, select on *.*  to contosoapp ;
 
--- check privileges already granted
 
-show grants for contosoapp ;
-
-```
-Grants for contosoapp should report
-
-```sql
-GRANT SELECT, PROCESS ON *.* TO 'contosoapp'@'%'
-GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'
-```
 
 It is possible to use the MySQL Workbench tool to run the export with proper settings. The MySQL Workbench version (8.0.23 as of Jan 2021) being different from MySQL version 5.7 is not a factor for this challenge. The MySQL export runs a series of exports for each table. If you do not want to see the warnings about `--set-gtid-purged`, use the flag  `--set-gtid-purged`. Now run this:
 
