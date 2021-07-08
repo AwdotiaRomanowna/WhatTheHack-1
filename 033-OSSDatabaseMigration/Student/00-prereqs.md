@@ -4,7 +4,7 @@
 
 ## Introduction
 
-It's time to set up what you will need in order to do these challenges for OSS DB migration
+It's time to set up your "on-premise" environment first. For this challenge, instructions are given on how to set it up.
 
 ## Description
 
