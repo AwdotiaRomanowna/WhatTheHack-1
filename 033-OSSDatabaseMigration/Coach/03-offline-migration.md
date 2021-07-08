@@ -8,11 +8,12 @@
 
 2. If the attendees want to connect to Azure DB for PostgreSQL/MySQL from within the AKS PostgreSQL/MySQL, they have two optoins.
 
-a)  Either under connection security, check the box for "Allow access to Azure services" 
+     a)  Either under connection security, check the box for "Allow access to Azure services" 
 
-or
+                   or
 
-b) Add the public IP address of the container to the DB firewall.  This is the IP address the container is using for egress to connect to Azure DB. In order to find that IP address, you can try to connect to the Azure DB from your container and the error message will tell you the IP.  
+    b) Add the public IP address of the container to the DB firewall.  This is the IP address the container is using for egress to connect to Azure DB. 
+    In order to find that IP address, you can try to connect to the Azure DB from your container and the error message will tell you the IP.  
 
 ```bash
 
@@ -34,7 +35,6 @@ psql: FATAL:  no pg_hba.conf entry for host "104.42.36.255", user "serveradmin",
 ```
 
 Another way to find the container egress IP address is to run this from the container.
-
 
 
 ```bash
@@ -87,62 +87,36 @@ GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'
 ```
 
 
-6. Next step is to run a database export from the source database. 
+6. Next step is to run a database export from the source database and import into Azure DB. 
 
-* PostgreSQL command to do offline export to exportdir directory and import offline to Azure DB for PostgreSQL. First bash into the PostgreSQL container and then use these two commands:
+**Postgres Export Import Commands**
+
+* PostgreSQL command to do offline export to exportdir directory and import offline to Azure DB for PostgreSQL. First bash into the PostgreSQL container and then use these two commands
 
 ```bash
+ kubectl -n postgresql exec deploy/postgres -it -- bash
  pg_dump -C -Fd  wth -j 4 -f exportdir -U contosoapp
  pg_restore -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget -d wth -Fd exportdir
 ```
 
-* For MySQL the database script file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing.
+**MySQL Export Import Commands**
 
-Privileges required to run MySQL export on the source database - connect as root:
-
-```sql
-grant ALL PRIVILEGES ON wth.* TO contosoapp ;
-grant process, select on *.*  to contosoapp ;
-
-
-
-It is possible to use the MySQL Workbench tool to run the export with proper settings. The MySQL Workbench version (8.0.23 as of Jan 2021) being different from MySQL version 5.7 is not a factor for this challenge. The MySQL export runs a series of exports for each table. If you do not want to see the warnings about `--set-gtid-purged`, use the flag  `--set-gtid-purged`. Now run this:
-
-```bash
-
-mysqldump.exe --defaults-file="tmp_akgbble.cnf"  --host=<container ip> --port=3306 --default-character-set=utf8 --user=contosoapp --protocol=tcp --no-data --skip-triggers --skip-column-statistics "wth" "bakestyle" --set-gtid-purged=off
-
-```
-
- Alternatively, do this from command prompt:
+ Alternatively, do this from command prompt of the MySQL container
 
  ```bash
-
-mysqldump -h <container ip> -u contosoapp -p --set-gtid-purged=off --skip-column-statistics --databases wth >dump_data.sql
-
+ kubectl -n mysql exec deploy/mysql -it -- bash
+ mysqldump -h localhost -u root -p --set-gtid-purged=off  --databases wth >dump_data.sql
+ 
+ mysql  -h mytarget2.mysql.database.azure.com -P 3306 -u contosoapp@mytarget2 -pOCPHack8  <dump_data.sql
  ```
+ 
+ It is possible to use the MySQL Workbench tool to run the export with proper settings. The MySQL Workbench version (8.0.23 as of Jan 2021) being different from MySQL version 5.7 is not a factor for this challenge. The MySQL export runs a series of exports for each table. If you do not want to see the warnings about `--set-gtid-purged`, use the flag  `--set-gtid-purged`.
+ 
+ * For MySQL the database the import file may contain references to @@SESSION and @@GLOBAL that will need to be removed prior to importing.
 
- * MySQL command to do offline import from import directory. When run from MySQL workbench:
 
-```bash
+ 
 
- mysql  --protocol=tcp --host=mytarget2.mysql.database.azure.com --user=contosoapp@mytarget2 --port=3306 --default-character-set=utf8 --comments --database=wth < wth_users.sql
 
-```
- Or from shell prompt:
-
- ```bash
-
-  mysql  -h mytarget2.mysql.database.azure.com -P 3306 -u contosoapp@mytarget2 -pOCPHack8  <dump_data.sql
-
- ```
-
- From command line shell script, do this to load all files one at a time:
-
- ```bash
-
- for file in `ls wth_*sql`; do mysql -h mytarget2.mysql.database.azure.com -P 3306 -u contosoapp@mytarget2 -pOCPHack8 wth <$file; done
-
- ```
 
 
