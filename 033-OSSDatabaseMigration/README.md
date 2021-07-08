@@ -39,6 +39,7 @@ The participants will learn how to:
 
 - Access to an Azure subscription with Owner access
    - If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
+   - Familiarity with Azure Cloud Shell
 - [**Visual Studio Code**](https://code.visualstudio.com/) (optional)
 
 ## Repository Contents
