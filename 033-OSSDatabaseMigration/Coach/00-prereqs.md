@@ -23,6 +23,8 @@ There are a lot of opportunities for things to go wrong in this step especially 
 
 ```bash
     kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza --tail=5000
+    OR
+    kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza
 ```
 
 * Google ReCaptcha will not work by default which means they will not be able to register as a user in the application. The attendee will need to generate their own. The instructions are here: https://github.com/pzinsta/pizzeria
