@@ -13,11 +13,11 @@ In this challenge you'll be setting up your environment so that you can complete
 - Install the recommended toolset:
     - To connect to PostgreSQL database, use [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) or [pgAdmin](https://www.pgadmin.org/)
     - [MySQL Workbench](https://www.mysql.com/products/workbench/) (note: if you get an error about not having the Visual Studio C++ 2019 Redistributable on your machine when installing, refer to this [note](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) 
-    - Visual Studio Code (optional)
+    - Visual Studio Code (optional) or any text editor.
     - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) - only if you plan to run this hackathon from your computer instead of Azure Cloud Shell. 
 
 - Step 1:
-    -   Download the required resources for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. Run this command to setup the environment: download the required resources for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. 
+    -   Download the required resources for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. 
     
 -  Step 2: 
     -  Decide if you want to run this hackathon on your in Azure cloud shell. The cloud shell has the pre-requisites toolset installed - AZ cli and PostgreSQL and MySQL CLI client. 
