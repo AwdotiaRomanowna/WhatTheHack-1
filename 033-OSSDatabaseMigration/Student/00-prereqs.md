@@ -41,6 +41,11 @@ chmod +x ./create-cluster.sh
 ```
 
 #### NOTE: creating the cluster will take several ( ~ 10 ) minutes
+#### NOTE: The Kubernetes cluster will consist of two containers "mysql" and "postgresql". For each container it is possible to connect to either the database tools or to the bash shell. 
+
+Please refer to the [AKS cheatsheet](./K8s_cheetsheet.md) for a reference of running handy AKS commands to access your kubernetes based on-premises environment. You will need this throughout the hack. 
+           
+
 
 -   Step 5:
 
@@ -67,7 +72,11 @@ chmod +x ./*.sh
     - Run the [shell script](./Resources/HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh` 
   This will block public access to your on-premise databases and allow access only from your computer.
 
-#### NOTE:  This script will restrict access to your Azure MySQL or Postgres database only from the shell where you are running this script from. If you are running in Azure cloud shell and your shell times out because of inactivity, once you launch your session again it will create a new session and a new ip address. You will need to run the script again then. In addition, if you are running this hack from azure cloud shell, and you want to connect to the Azure databases from your computer using gui tools like MySQL Workbench or Pgadmin, you need to  open up the script file and edit the line with "myip" with your computer's ip address. You can get this ip address by launching a browser to [here](https://ifconfig.me). On the other hand, if you are running this hackathon from your computer and do not intend to use cloud shell,  there is no need to change anuything in the script. 
+#### NOTE:  This script will restrict access to your Azure MySQL or Postgres database only from the shell where you are running this script from. 
+#### If you are running in Azure cloud shell and your shell times out because of inactivity, once you launch your session again it will create a new session and a new ip address. You will need to run the script again then. 
+#### In addition, if you are running this hack from azure cloud shell, and you want to connect to the Azure databases from your computer using gui tools like MySQL Workbench or Pgadmin, you need to  open up the script file and edit the line with "myip" with your computer's ip address. 
+#### You can get your computer's ip address by launching a browser to [here](https://ifconfig.me).
+#### If you are running this hackathon from your computer and do not intend to use cloud shell,  there is no need to change anuything in the script. 
  
 
 ## References
