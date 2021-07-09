@@ -4,10 +4,9 @@
 
 echo -e "\n This script restricts the access to your Postgres and MySQL database from your computer only.
 
- If you are running this script from Azure Cloud Shell, then you have to edit this file befire executing it. 
- The variable myip will get the ip address of the cloud shell, not your computer. In that case, in order to get your computer ip address,  point a browser to 
- https://ifconfig.me and put that below. So if the browser says it is 102.194.87.201, your myip=102.194.87.201/32. 
- On the other hand if you are running from your own computer, then the curl command gets your ip address automatically for you. No need to edit anything \n"
+ The variable myip will get the ip address of the shell environment where this script is running from - be it a cloud shell or your own computer.
+ You can get  your computer's IP adress by browsing to  https://ifconfig.me. So if the browser says it is 102.194.87.201, your myip=102.194.87.201/32. 
+\n"
 
 myip=`curl -s ifconfig.me`/32
 
