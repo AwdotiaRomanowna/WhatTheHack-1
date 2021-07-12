@@ -41,7 +41,7 @@ In this challenge you'll be setting up your environment so that you can complete
  
 
 
-    [x]   Download the required resources,zip file for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. 
+     -  Download the required resources,zip file for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. 
     
     
 
@@ -49,7 +49,7 @@ In this challenge you'll be setting up your environment so that you can complete
     - Unzip the resources.zip file.
 
   
-  []
+  
 
     -  Run the following command to setup the on-prem AKS environment:
     
