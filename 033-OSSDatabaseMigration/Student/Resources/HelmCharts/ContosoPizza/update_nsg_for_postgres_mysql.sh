@@ -14,7 +14,7 @@ myip=`curl -s ifconfig.me`/32
 # In this resource group, there is only one NSG. Change the value of the resource group, if required
 
 export rg_nsg="MC_OSSDBMigration_ossdbmigration_westus"
-export nsg_name=`az network nsg list  -g $rg_nsg -o table | tail -1 | awk '{print $2}'`
+export nsg_name=`az network nsg list  -g $rg_nsg --query "[].name" -o tsv`
 
 # For this NSG, there are two rules for connecting to Postgres and MySQL.
 
