@@ -4,34 +4,52 @@
 
 ## Introduction
 
-It's time to set up your "on-premise" environment first. For this challenge, instructions are given on how to set it up.
+It's time to set up your "on-premise" environment first. Instructions are given here on how to set it up.
+
+
+### Important Decision
+
+In this hackathon, you will need a Unix/Linux shell to type many commands. Azure Cloud bash shell provides a convenient shell environment. It comes with several CLI that are used during the challenges - AZ, Kubernetes, Helm, MySQL and Postgres. While it is possible to run the entire hack using these CLI tools only, it may be convenient for the participants to install some GUI tools for accessing the MySQL/Postgres databases for running database queries. Some common database GUI tools are listed below:
+
+[DBeaver](https://dbeaver.io/download/) - can connect to MySQL and Postgres ( and many other databaes )
+
+[pgAdmin](https://www.pgadmin.org/download/) - Postgres only
+[MySQL Workbench](https://www.mysql.com/products/workbench/) - MySQL only
+
+[Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) - Postgres only ( with Postgres extension and SQL server/Azure SQL )
+
+
+Besides cloud shell, this hackathon can also be run from your computer's shell. If you have Windows, you have use WSL2, or your shell from Mac.
+In that case, you need to unstall the following CLIs
+
+    - AZ CLI
+    -  Kubernetes CLI
+    - Helm CLI
+    - MySQL client ( or GUI tool )
+    - Postgres client ( or GUI tool )
+
+
+Yoou also need a text editor of your choice. Azure Cloud Shell has both VS Code, vim, nano - or you can use your own editor if running from your computer.
+
 
 ## Description
 
 In this challenge you'll be setting up your environment so that you can complete your challenges.
+ 
 
-- Install the recommended toolset:
-    - To connect to PostgreSQL database, use [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) or [pgAdmin](https://www.pgadmin.org/)
-    - [MySQL Workbench](https://www.mysql.com/products/workbench/) (note: if you get an error about not having the Visual Studio C++ 2019 Redistributable on your machine when installing, refer to this [note](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0))
-    - Visual Studio Code (optional) or any text editor.
-    - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) - only if you plan to run this hackathon from your computer instead of Azure Cloud Shell. 
 
-- Step 1:
     -   Download the required resources,zip file for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. 
     
--  Step 2: 
-    -  Decide if you want to run this hackathon on your in Azure cloud shell. The cloud shell has the pre-requisites toolset installed - AZ cli and PostgreSQL and MySQL CLI client. If you run in cloud shell, upload the Resources.zip file to cloud shell.
     
-    -  Alternately, if you have WSL on Windows or any unix shell, or a Mac you can run it from your computer too. In that case please make sure you have Azure CLI installed. 
-      
--   Step 3:
+
  
     - Unzip the resources.zip file.
 
   
--   Step 4:
+-:
 
     -  Run the following command to setup the on-prem AKS environment:
+    
 
 ```bash
 cd ~/Resources/ARM-Templates/KubernetesCluster
@@ -47,7 +65,6 @@ Please refer to the [AKS cheatsheet](./K8s_cheetsheet.md) for a reference of run
            
 
 
--   Step 5:
 
     - Deploy the Pizzeria applications - it will create two web applications - one using PostgreSQL and another using MySQL database.
 
@@ -60,7 +77,7 @@ chmod +x ./*.sh
 
 #### NOTE: deploying the Pizzeria application will take several ( ~ 5 ) minutes
 
--   Step 6:
+
 
     - Once the applications are deployed, you will get messages like this. Click on both the links to ensure you are able to see the pizza websites. Notice that they run on            different ip address and different ports.
 
@@ -68,7 +85,7 @@ chmod +x ./*.sh
       
       Pizzeria app on PostgreSQL is ready at http://some_other_ip_address:8082/pizzeria
 
-- Step 7:
+
     - Run the [shell script](./Resources/HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh` 
   This will block public access to your on-premise databases and allow access only from your computer.
 
