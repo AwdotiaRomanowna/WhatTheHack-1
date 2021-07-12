@@ -24,13 +24,13 @@ Besides cloud shell, this hackathon can also be run from your computer's shell. 
 In that case, you need to unstall the following CLIs
 
     - AZ CLI
-    -  Kubernetes CLI
+    - Kubernetes CLI
     - Helm CLI
     - MySQL client ( or GUI tool )
     - Postgres client ( or GUI tool )
 
 
-Yoou also need a text editor of your choice. Azure Cloud Shell has both VS Code, vim, nano - or you can use your own editor if running from your computer.
+You also need a text editor of your choice. Azure Cloud Shell has both VS Code, vim, nano - or you can use your own editor if running from your computer.
 
 
 ## Description
