@@ -114,6 +114,22 @@ chmod +x ./*.sh
 * Once connected to the database, explore the "wth" database used for the application. 
 * Explore the user "contosoapp" that owns the application objects and its security privileges it has. 
 
+
+## Hint
+
+* The on-prem MySQL and Postgres databases have an public IP address that you can connect to. 
+* In order to get those public IP addresses, run these commands and look for the "external-IP"s.
+
+```bash
+
+ kubectl -n mysql get svc
+ kubectl -n postgresql get svc
+
+```
+
+There are more useful kubernetes commands in the reference section below.
+
+
 ## References
 
 *  [AKS cheatsheet](./K8s_cheetsheet.md)
