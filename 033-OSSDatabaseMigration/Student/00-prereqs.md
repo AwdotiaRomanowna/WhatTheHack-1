@@ -49,7 +49,7 @@ In this challenge you'll be setting up your environment so that you can complete
     - Unzip the resources.zip file.
 
   
--:
+  []
 
     -  Run the following command to setup the on-prem AKS environment:
     
