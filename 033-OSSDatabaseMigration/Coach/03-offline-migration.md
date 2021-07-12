@@ -17,7 +17,7 @@
     
 ### MySQL -- Important 
  
-3. Participants using cloud shell and using mysql client on the cloud shell is using MariaDB mysql client, not the regular one from Oracle.  To connect to your Azure MySQL database, you have to add the flag "--ssl=1" at the end. If you are running it on WSL/Ubuntu or Mac Shell and using Oracle MySQL client, the "--ssl=1" flag is not required.
+3. Participants using cloud shell and using mysql client on the cloud shell is using MariaDB mysql client, not the regular one from Oracle.  To connect to your Azure MySQL database, you have to add the flag "--ssl" at the end. If you are running it on WSL/Ubuntu or Mac Shell and using Oracle MySQL client, the "--ssl" flag is not required.
 
 ```bash
 
