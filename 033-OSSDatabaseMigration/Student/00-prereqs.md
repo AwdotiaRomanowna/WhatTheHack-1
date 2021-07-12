@@ -90,6 +90,8 @@ chmod +x ./*.sh
 
 
     - Run the [shell script](./Resources/HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh` 
+    
+    
   This will block public access to your on-premise databases and allow access only from your computer.
 
 #### NOTE:  This script will restrict access to your "on prem" MySQL or Postgres database that are used for the pizza app here -  only from the shell where you are running this script from. 
@@ -109,8 +111,8 @@ chmod +x ./*.sh
 * You have a Unix/Linux Shell at your disposal for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2 bash, Mac zsh etc.)
 * You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working
 * [Optional] You have database management tools GUI for PostgreSQL and MySQL installed on your computter and are able to connect to the Postgres and MySQL databases.
-* Using GUI tool or commandlike SQL, once connected to the database, explore the "wth" database used for the application. 
-* Explore the user "contosoapp" that owns the application objects and its security privileges. In later challenges, this user needs to be created on the target database.
+* Once connected to the database, explore the "wth" database used for the application. 
+* Explore the user "contosoapp" that owns the application objects and its security privileges it has. 
 
 ## References
 
