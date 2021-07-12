@@ -14,6 +14,7 @@ In this hackathon, you will need a Unix/Linux shell to type many commands. Azure
 [DBeaver](https://dbeaver.io/download/) - can connect to MySQL and Postgres ( and many other databaes )
 
 [pgAdmin](https://www.pgadmin.org/download/) - Postgres only
+
 [MySQL Workbench](https://www.mysql.com/products/workbench/) - MySQL only
 
 [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) - Postgres only ( with Postgres extension and SQL server/Azure SQL )
