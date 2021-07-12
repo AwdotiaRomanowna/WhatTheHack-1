@@ -9,9 +9,9 @@ It's time to set up your "on-premise" environment first. Instructions are given 
 
 ### Important Decision
 
-Before starting the challenges, you have to make a decision on where they want to run the challenges from.
+Before starting the challenges, you have to make a decision on where you want to run the challenges from.
 
-You will need a Unix/Linux shell to type many commands. Azure Cloud bash shell provides a convenient shell environment. It comes with several CLI that are used during the challenges - AZ, Kubernetes, Helm, MySQL and Postgres. While it is possible to run the entire hack using these CLI tools only, it may be convenient for the participants to install some GUI tools for accessing the MySQL/Postgres databases for running database queries. Some common database GUI tools are listed below:
+You will need a Unix/Linux shell to type many commands. Azure Cloud bash shell provides a convenient shell environment. It comes with several CLI that are used during the challenges - AZ, Kubernetes, Helm, MySQL and Postgres. While it is possible to run the entire hack using these CLI tools only, it may be convenient for the participants to install some GUI tools for accessing the MySQL/Postgres databases for running database queries. Some common database GUI tools are listed below. You can use your own tool or choose to stay from all GUI tools and use only CLI.
 
 [DBeaver](https://dbeaver.io/download/) - can connect to MySQL and Postgres ( and many other databaes )
 
@@ -22,7 +22,7 @@ You will need a Unix/Linux shell to type many commands. Azure Cloud bash shell p
 [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) - Postgres only ( with Postgres extension and SQL server/Azure SQL )
 
 
-Besides cloud shell, this hackathon can also be run from your computer's shell. If you have Windows, you have use WSL2, or your shell from Mac.
+As an alternative to cloud shell, this hackathon can also be run from your computer's shell. Particularly Windows ( WSL2 )  or your shell from Mac.
 If you choose to run it from your computer, you need to unstall the following CLIs
 
     - AZ CLI
