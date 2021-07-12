@@ -14,6 +14,15 @@
 
     b) Add the public IP address of the container to the DB firewall.  This is the IP address the container is using for egress to connect to Azure DB. 
     In order to find that IP address, you can try to connect to the Azure DB from your container and the error message will tell you the IP.  
+    
+2. ** For MySQL -- Important ** - participants using cloud shell and using mysql client on the cloud shell is using MariaDB mysql client, not the regular one from Oracle.  To connect to your Azure MySQL database, you have to add the flag "--ssl=1" at the end. If you are running it on WSL/Ubuntu or Mac Shell and using Oracle MySQL client, the "--ssl=1" flag is not required.
+
+```bash
+
+ mysql -h <server-name>.mysql.database.azure.com -P 3306 -u contosoapp@<server-name> -pOCPHack8 --ssl=1              
+ 
+ ```
+ 
 
 ```bash
 
