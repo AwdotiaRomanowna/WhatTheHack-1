@@ -21,7 +21,7 @@ In this hackathon, you will need a Unix/Linux shell to type many commands. Azure
 
 
 Besides cloud shell, this hackathon can also be run from your computer's shell. If you have Windows, you have use WSL2, or your shell from Mac.
-In that case, you need to unstall the following CLIs
+If you choose to run it from your computer, you need to unstall the following CLIs
 
     - AZ CLI
     - Kubernetes CLI
@@ -30,7 +30,7 @@ In that case, you need to unstall the following CLIs
     - Postgres client ( or GUI tool )
 
 
-You also need a text editor of your choice. Azure Cloud Shell has both VS Code, vim, nano - or you can use your own editor if running from your computer.
+You also need a text editor of your choice. Azure Cloud Shell has several editors - VS Code, vim, nano. If running from your own computer,  you can use your own favorite editor.
 
 
 ## Description
