@@ -116,8 +116,9 @@ chmod +x ./*.sh
 
 ## References
 
-* [pgAdmin](https://www.pgadmin.org)
-* [MySQL Workbench](https://www.mysql.com/products/workbench/)
-* [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
+*  [AKS cheatsheet](./K8s_cheetsheet.md)
+* [pgAdmin](https://www.pgadmin.org) (optional)
+* [MySQL Workbench](https://www.mysql.com/products/workbench/) (optional)
+* [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15) (optional)
 * [Visual Studio Code](https://code.visualstudio.com/) (optional)
 
