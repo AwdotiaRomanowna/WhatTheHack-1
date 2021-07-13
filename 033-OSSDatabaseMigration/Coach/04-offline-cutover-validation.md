@@ -8,3 +8,21 @@
 
 * If using MySQL Workbench tool to migrate mysql database, make sure to use the "MySQL Workbench Migration Wizard". This is available under the "home icon" as shown [here](./mysql_workbench_migration_wizard.jpg) 
 
+* SQL command to change ingredient table value - MySQL
+
+```sql
+
+use wth ;
+update ingredient set name = 'Shallot' where name = 'Onion' ;
+
+```
+
+* SQL command to change ingredient table value - Postgres
+
+```sql
+
+\c wth 
+update ingredient set name = 'Shallot' where name = 'Onion' ;
+
+
+```
