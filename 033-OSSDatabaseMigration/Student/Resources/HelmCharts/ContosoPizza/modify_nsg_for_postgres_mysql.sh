@@ -35,13 +35,13 @@ existing_pg_source_ip_allowed=`az network nsg rule show  -g $rg_nsg --nsg-name $
 
 if [ "$existing_my_source_ip_allowed" = "Internet" ]
 then
-  $existing_my_source_ip_allowed = "0.0.0.0"
+  existing_my_source_ip_allowed="0.0.0.0"
 fi
 
 
-if [ "$existing_pg_source_ip_allowed" = "Internet" ]
+if [ "$existing_pg_source_ip_allowed" = "*" ]
 then
-  $existing_pg_source_ip_allowed = "0.0.0.0"
+   existing_pg_source_ip_allowed="0.0.0.0"
 fi
 
 # if the existing source ip allowed is open to the world - then we need to remove it first. Otherwise it is a ( list of ) IP addresses then 
@@ -76,13 +76,13 @@ az network nsg rule update -g $rg_nsg --nsg-name $nsg_name --name $my_nsg_rule_n
 
 if [ $? -ne 0 ]
 then
-  echo -e "\n Your MySQL Firewall rule was not changed. It is possible that you already have $my_ip white listed "
+  echo -e "\n Your MySQL Firewall rule was not changed. It is possible that you already have $my_ip white listed \n"
 fi
 
 az network nsg rule update -g $rg_nsg --nsg-name $nsg_name --name $pg_nsg_rule_name --source-address-prefixes $new_pg_source_ip_allowed 2>/dev/zero
 if [ $? -ne 0 ]
 then
-  echo -e "\n Your Postgres Firewall rule was not changed. It is possible that you already have $my_ip white listed "
+  echo -e "\n Your Postgres Firewall rule was not changed. It is possible that you already have $my_ip white listed \n"
 fi
 
 
