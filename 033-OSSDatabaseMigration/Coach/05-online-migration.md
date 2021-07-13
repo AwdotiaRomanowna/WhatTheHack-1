@@ -20,7 +20,9 @@ kubectl -n postgresql exec deploy/postgres -it -- bash
 pg_dump -o -h localhost -U contosoapp -d wth -s >dump_wth.sql
 ```
 
-This creates a psql dump text file. We need to import it to the target - schema only. It is suggested to create a separate database for online migration. Alternatively, you can drop and re-create the wth database.
+This creates a psql dump text file. We need to import it to the target - schema only. It is suggested to create a separate database for online migration - wth2. 
+
+Alternatively, you can drop all the tables and indices and re-create just the tables.
 
 To drop all the tables with indexes
 
@@ -30,13 +32,6 @@ To drop all the tables with indexes
 select 'drop table ' || tablename || ' cascade;'  from pg_tables where tableowner = 'contosoapp' and schemaname = 'public' ;
 ```
 
-To import the schema only to target using psql
-
-```sql
-
-create database wth
-
-```
 
 Import the schema to target
 
