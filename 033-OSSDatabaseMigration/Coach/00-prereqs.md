@@ -27,7 +27,7 @@ There are a lot of opportunities for things to go wrong in this step especially 
     kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza
 ```
 
-* Google ReCaptcha will not work by default which means they will not be able to register as a user in the application. The attendee will need to generate their own. The instructions are here: https://github.com/pzinsta/pizzeria
+* Google ReCaptcha will not work by default which means they will not be able to register as a user in the application. The attendee will need to generate their own. The instructions are here: https://github.com/pzinsta/pizzeria. The IP address for each web application will need to be registered as a domain in Google reCaptcha. 
 
 * The approximate cost for this hack is about $15/day:
     AKS: $90/month
