@@ -89,7 +89,7 @@ chmod +x ./*.sh
       Pizzeria app on PostgreSQL is ready at http://some_other_ip_address:8082/pizzeria
 
 
-    - Run the [shell script](./Resources/HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh` 
+    - Run the [shell script](./Resources/HelmCharts/ContosoPizza/modify_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh` 
     
     
   This will block public access to your on-premise databases and allow access only from your computer.
