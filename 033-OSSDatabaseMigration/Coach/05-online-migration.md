@@ -24,7 +24,7 @@ This creates a psql dump text file. We need to import it to the target - schema 
 
 Alternatively, you can drop all the tables and indices and re-create just the tables.
 
-To drop all the tables with indexes
+To drop all the tables with indexes. This SQL script creates a file called drop_tables.sql which you can run in the next step to execute in SQL to drop the tables and indices.
 
 ```bash
 \out drop_tables.sql
@@ -32,6 +32,13 @@ To drop all the tables with indexes
 select 'drop table ' || tablename || ' cascade;'  from pg_tables where tableowner = 'contosoapp' and schemaname = 'public' ;
 ```
 
+Now execite the drop_tables.sql script in SQL
+
+```sql
+
+\i drop_tables.sql
+
+```
 
 Import the schema to target
 
