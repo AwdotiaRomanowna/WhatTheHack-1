@@ -41,7 +41,7 @@ kubectl -n contosoapppostgres get svc
 kubectl -n contosoapppostgres get pods
 ```
 
-### Connect to the MySQL and Postgres database
+### Connect to the MySQL and PostgreSQL database
 
 ```
 kubectl -n mysql exec deploy/mysql -it -- /usr/bin/mysql -u contosoapp -pOCPHack8
@@ -49,7 +49,7 @@ kubectl -n postgresql exec deploy/postgres -it -- /usr/bin/psql -U contosoapp po
 ```
 
 
-### Open a Bash shell to the MySQL and Postgres service
+### Open a Bash shell to the MySQL and PostgreSQL service
 ```
 kubectl -n mysql exec deploy/mysql -it -- bash
 ```
@@ -57,4 +57,9 @@ kubectl -n mysql exec deploy/mysql -it -- bash
 ### Open a Bash shell to the PostgreSQL service
 ```
 kubectl -n postgresql exec deploy/postgres -it -- bash
+```
+
+### View the deployment logs of the container(s)
+```bash
+kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza --tail=5000 #Or omit '--tail 5000' if you want to see the environment variables that were used at deployment time 
 ```

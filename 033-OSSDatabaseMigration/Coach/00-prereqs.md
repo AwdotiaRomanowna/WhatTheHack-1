@@ -34,7 +34,7 @@ There are a lot of opportunities for things to go wrong in this step especially 
     Azure DB for MySQL: $153/month
     Azure DB for PostgreSQL: $139/month
 
-    Total: $382/month (or $13 + any incidental charges for storage, private endpoints, etc.)
+    Total: $382/month (or $13/day + any incidental charges for storage, private endpoints, etc.)
 
 * This hack can be done in an Azure trial account (one attendee per Azure trial). However, Microsoft anti-fraud detection may prevent multiple Azure trial subscriptions from being created in the same network location. Also, each attendee will need a working credit card to setup an Azure trial subscription (even though the card will not be charged).
 
