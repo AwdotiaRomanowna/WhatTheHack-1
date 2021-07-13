@@ -32,10 +32,10 @@ select 'drop table ' || tablename || ' cascade;'  from pg_tables where tableowne
 
 To import the schema only to target using psql
 
-```bash
-$ psql -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget  -d wth <dump_wth.sql
+```sql
 
-postgres=> create database wth
+create database wth
+
 ```
 
 Import the schema to target
