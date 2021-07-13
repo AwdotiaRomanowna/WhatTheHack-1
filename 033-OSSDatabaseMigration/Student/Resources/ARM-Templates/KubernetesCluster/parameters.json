@@ -21,7 +21,7 @@
         "value": 1
       },
       "systemPoolNodeType": {
-        "value": "Standard_D4s_v4"
+        "value": "Standard_D2s_v4"
       },
       "agentPoolNodeCount": {
         "value": 1
