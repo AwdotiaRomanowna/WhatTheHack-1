@@ -41,17 +41,17 @@ In this challenge you'll be setting up your environment so that you can complete
  
 
 
-     - Download the required resources,zip file for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. 
+   - Download the required resources,zip file for this hack. The location will be given to you by your coach. You should do this in Azure Cloud Shell or in an Mac/Linux/WSL environment which has the Azure CLI installed. 
     
     
 
  
-    - Unzip the resources.zip file.
+   - Unzip the resources.zip file.
 
   
   
 
-    - Run the following command to setup the on-prem AKS environment:
+   - Run the following command to setup the on-prem AKS environment:
     
 
 ```bash
@@ -69,7 +69,7 @@ Please refer to the [AKS cheatsheet](./K8s_cheetsheet.md) for a reference of run
 
 
 
-    - Deploy the Pizzeria applications - it will create two web applications - one using PostgreSQL and another using MySQL database.
+   - Deploy the Pizzeria applications - it will create two web applications - one using PostgreSQL and another using MySQL database.
 
 ```bash
 cd ~/Resources/HelmCharts/ContosoPizza
@@ -82,14 +82,14 @@ chmod +x ./*.sh
 
 
 
-    - Once the applications are deployed, you will get messages like this. Click on both the links to ensure you are able to see the pizza websites. Notice that they run on            different ip address and different ports.
+   - Once the applications are deployed, you will get messages like this. Click on both the links to ensure you are able to see the pizza websites. Notice that they run on            different ip address and different ports.
 
       Pizzeria app on MySQL is ready at http://some_ip_address:8081/pizzeria
       
       Pizzeria app on PostgreSQL is ready at http://some_other_ip_address:8082/pizzeria
 
 
-    - Run the [shell script](./Resources/HelmCharts/ContosoPizza/modify_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/update_nsg_for_postgres_mysql.sh` 
+   - Run the [shell script](./Resources/HelmCharts/ContosoPizza/modify_nsg_for_postgres_mysql.sh) in the files given to you for this hack at this path: `HelmCharts/ContosoPizza/modify_nsg_for_postgres_mysql.sh` 
     
     
   This will block public access to your on-premise databases and allow access only from your computer.
