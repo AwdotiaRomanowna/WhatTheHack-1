@@ -41,7 +41,7 @@ postgres=> create database wth
 Import the schema to target
 
 ```bash
-psql -h pgtarget.postgres.database.azure.com -U contosoapp@pgtarget -d wth2 < dump_wth.sql
+psql -h pgtarget.postgres.database.azure.com -U contosoapp@pgtarget -d wth < dump_wth.sql
 ```
 
 Verify count of tables and indexes created on the target database from psql. 26 tables, 39 indices.

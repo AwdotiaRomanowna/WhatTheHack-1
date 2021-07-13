@@ -14,6 +14,17 @@
 
     b) Add the public IP address of the container to the DB firewall.  This is the IP address the container is using for egress to connect to Azure DB. 
     In order to find that IP address, you can try to connect to the Azure DB from your container and the error message will tell you the IP.  
+    
+### MySQL -- Important 
+ 
+3. Participants using cloud shell and using mysql client on the cloud shell is using MariaDB mysql client, not the regular one from Oracle.  To connect to your Azure MySQL database, you have to add the flag "--ssl" at the end. If you are running it on WSL/Ubuntu or Mac Shell and using Oracle MySQL client, the "--ssl" flag is not required.
+
+```bash
+
+ mysql -h <server-name>.mysql.database.azure.com -P 3306 -u contosoapp@<server-name> -pOCPHack8 --ssl            
+ 
+ ```
+ 
 
 ```bash
 
@@ -91,7 +102,9 @@ GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'
 
 **Postgres Export Import Commands**
 
-* PostgreSQL command to do offline export to exportdir directory and import offline to Azure DB for PostgreSQL. First bash into the PostgreSQL container and then use these two commands
+* PostgreSQL command to do offline export to exportdir directory and import offline to Azure DB for PostgreSQL. First bash into the PostgreSQL container and then use these two commands.
+
+*Make sure to run the data import uses the contosoapp database account*
 
 ```bash
  kubectl -n postgresql exec deploy/postgres -it -- bash
@@ -102,6 +115,9 @@ GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'
 **MySQL Export Import Commands**
 
  Alternatively, do this from command prompt of the MySQL container
+
+*Make sure to run the data import uses the contosoapp database account*
+
 
  ```bash
  kubectl -n mysql exec deploy/mysql -it -- bash

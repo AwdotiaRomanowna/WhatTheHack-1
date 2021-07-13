@@ -16,7 +16,7 @@ appConfig:
 ```
 Once you make your changes, you will need to run helm upgrade command again to see them in the Pizzeria web application:
 
-For MySQL: 
+* For MySQL:
 
 ```bash
 
@@ -24,12 +24,29 @@ helm upgrade --install mysql-contosopizza ./ContosoPizza -f ./ContosoPizza/value
 kubectl -n contosoappmysql rollout restart deployment contosopizza
 ```
 
-For PostgreSQL: 
+Wait for a minute or two until the status field for the command of kubectl is  "Running" and "READY" state is "1/1"
+
+```bash
+
+ kubectl -n contosoappmysql get pods
+
+```
+
+* PostgreSQL:
 
 ```bash
 
 helm upgrade --install postgres-contosopizza ./ContosoPizza -f ./ContosoPizza/values.yaml -f ./ContosoPizza/values-postgresql.yaml
 kubectl -n contosoapppostgres rollout restart deployment contosopizza
+```
+
+
+Wait for a minute or two until the status field for the command of kubectl is  "Running" and "READY" state is "1/1"
+
+```bash
+
+ kubectl -n contosoapppostgres get pods
+
 ```
 
 ## Success Criteria
