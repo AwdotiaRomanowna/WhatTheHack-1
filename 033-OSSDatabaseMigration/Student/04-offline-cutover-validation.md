@@ -16,7 +16,7 @@ appConfig:
 ```
 Once you make your changes, you will need to run helm upgrade command again to see them in the Pizzeria web application:
 
-For MySQL: 
+*For MySQL:*
 
 ```bash
 
@@ -32,7 +32,7 @@ Wait for a minute or two until the status field for the command of kubectl is  "
 
 ```
 
-For PostgreSQL: 
+* PostgreSQL:*
 
 ```bash
 
