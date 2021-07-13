@@ -104,7 +104,7 @@ GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'
 
 * PostgreSQL command to do offline export to exportdir directory and import offline to Azure DB for PostgreSQL. First bash into the PostgreSQL container and then use these two commands.
 
-!!!  Make sure to run the data import uses the contosoapp database account
+*Make sure to run the data import uses the contosoapp database account*
 
 ```bash
  kubectl -n postgresql exec deploy/postgres -it -- bash
@@ -116,7 +116,7 @@ GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'
 
  Alternatively, do this from command prompt of the MySQL container
 
-!!!  Make sure to run the data import uses the contosoapp database account
+*Make sure to run the data import uses the contosoapp database account*
 
 
  ```bash
