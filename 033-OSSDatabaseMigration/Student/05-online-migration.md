@@ -13,7 +13,7 @@ In this challenge you will do a schema only dump of the on-premises databases, c
 
 * Demonstrate that all tables have been migrated successfully to Azure DB for PostgreSQL/MySQL "
 
-## Hints
+## Hints -- Postgres
 
 * Use the Premium version of the Azure Database Migration Service for migrating Postgres.
 * Put the Database Migration Service in its own subnet inside the same Vnet that on-prem AKS uses - "OSSDBMigrationNet". This way it can connect to source database using private IP address.
@@ -26,6 +26,10 @@ kubectl describe service -n postgresql postgres-external | grep Endpoints
 ```
 
 * You may have to drop open database connections if you are coming from a prior challenge where you ran the application. Alternatively, you could uninstall the web application(s) using helm, drop the database(s) and redeploy the application using helm. 
+
+## Hints -- MySQL
+
+
 * For MySQL, the tutorial mentions dropping foreign keys on the target database. You will not be able to run the script as is in that article. You will need to replace `KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName'` with `KCU.REFERENCED_TABLE_SCHEMA = 'wth'`
 
 ## References
