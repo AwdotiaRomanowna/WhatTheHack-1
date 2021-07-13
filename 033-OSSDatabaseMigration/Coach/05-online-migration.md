@@ -12,7 +12,7 @@ Perform an online migration using the Azure Database Migration Service
 
 ## Steps -- PostgreSQL
 
-Connect to the database container and run the export:
+Connect to the database container and run the export on the source database :
 
 ```bash
 kubectl -n postgresql exec deploy/postgres -it -- bash
@@ -24,15 +24,18 @@ This creates a psql dump text file. We need to import it to the target - schema 
 
 Alternatively, you can drop all the tables and indices and re-create just the tables.
 
-To drop all the tables with indexes. This SQL script creates a file called drop_tables.sql which you can run in the next step to execute in SQL to drop the tables and indices.
+To drop all the tables with indexes, the following SQL script creates a file called drop_tables.sql which you can run in the next step to execute in SQL to drop the tables and indices.
 
 ```bash
+
+\c wth
 \out drop_tables.sql
 
 select 'drop table ' || tablename || ' cascade;'  from pg_tables where tableowner = 'contosoapp' and schemaname = 'public' ;
+
 ```
 
-Now execite the drop_tables.sql script in SQL
+Now execute the drop_tables.sql script in SQL
 
 ```sql
 
@@ -40,7 +43,7 @@ Now execite the drop_tables.sql script in SQL
 
 ```
 
-Import the schema to target
+Next, import the schema to target
 
 ```bash
 psql -h pgtarget.postgres.database.azure.com -U contosoapp@pgtarget -d wth < dump_wth.sql
