@@ -7,7 +7,7 @@
  Make sure the attendees can explain both the business and technical motivations for choosing a particular service tier. The goal here is to simulate a workload for the
  database, watch the system load and then pick the right service tier in Azure DB for Postgres/MySQL. To monitor system load using tools like htop, you need to upgrade the OS and install the tool first. The following is an example in PostgreSQL:
 
- * Create a database in your on-premises database called samples, create a pgbench schema and run a synthetic load:
+ * Create a database in your on-premises postgress database server called samples, create a pgbench schema and run a synthetic load:
  
 ```bash
 

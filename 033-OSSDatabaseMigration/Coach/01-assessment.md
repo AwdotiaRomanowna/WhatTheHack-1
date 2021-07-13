@@ -35,7 +35,7 @@
    
    
    
-   * To connect to MySQL, run this from Azure cloud shell or from your computer to connect using psql commandline. Alternately you can use a tool like MySQL Workbench or DBeaver
+   * To connect to MySQL, run this from Azure cloud shell or from your computer to connect using mysql commandline. Alternately you can use a tool like MySQL Workbench or DBeaver
 
 
 
