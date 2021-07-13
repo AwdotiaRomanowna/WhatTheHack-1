@@ -7,7 +7,7 @@
 It's time to set up your "on-premise" environment first. Instructions are given here on how to set it up.
 
 
-### Important Decision
+### Important Decision To Make First
 
 Before starting the challenges, you have to make a decision on where you want to run the challenges from.
 
@@ -95,11 +95,12 @@ chmod +x ./*.sh
   This will block public access to your on-premise databases and allow access only from your computer.
 
 #### NOTE:  This script will restrict access to your "on prem" MySQL or Postgres database that are used for the pizza app here -  only from the shell where you are running this script from. 
-#### If you are running in Azure cloud shell and your shell times out because of inactivity, once you launch your session again it will create a new session and a new ip address. You will need to run the script again then. 
-#### In addition, if you are running this hack from azure cloud shell, and you want to connect to the Azure databases from your computer using gui tools like MySQL Workbench or Pgadmin, you need to  open up the script file and edit the line with "myip" with your computer's ip address. 
-#### You can get your computer's ip address by launching a browser to [here](https://ifconfig.me).
-#### If you are running this hackathon from your computer and do not intend to use cloud shell,  there is no need to change anuything in the script. 
- 
+
+#### If you are running in Azure cloud shell and your shell times out because of inactivity, once you launch your session again it will create a new session and a new ip address. You will need to run the script again to add the new IP. 
+
+#### In addition, if you are running this hack from azure cloud shell, and you want to connect to the Azure databases from your computer using gui tools like MySQL Workbench or Pgadmin, you need to  open up the script file and edit the line with "my_ip" with your computer's ip address. This will add your computer's IP in addition to the cloud shell as allowed source.
+
+
 
 ## References
 
