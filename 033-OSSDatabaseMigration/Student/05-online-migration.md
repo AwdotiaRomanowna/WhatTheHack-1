@@ -16,7 +16,7 @@ In this challenge you will do a schema only dump of the on-premises databases, c
 ## Hints
 
 * Use the Premium version of the Azure Database Migration Service for migrating Postgres.
-* Put the Database Migration Service in its own subnet inside the same Vnet that on-prem AKS uses - "OSSDBMigration". This way it can connect to source database using private IP address.
+* Put the Database Migration Service in its own subnet inside the same Vnet that on-prem AKS uses - "OSSDBMigrationNet". This way it can connect to source database using private IP address.
 * To find out the private IP address for the Postgres On-Prem 
 
 ```bash
