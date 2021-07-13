@@ -35,13 +35,13 @@ existing_pg_source_ip_allowed=`az network nsg rule show  -g $rg_nsg --nsg-name $
 
 if [ "$existing_my_source_ip_allowed" = "Internet" ]
 then
-  existing_my_source_ip_allowed = "0.0.0.0"
+  $existing_my_source_ip_allowed = "0.0.0.0"
 fi
 
 
 if [ "$existing_pg_source_ip_allowed" = "Internet" ]
 then
-  existing_pg_source_ip_allowed = "0.0.0.0"
+  $existing_pg_source_ip_allowed = "0.0.0.0"
 fi
 
 # if the existing source ip allowed is open to the world - then we need to remove it first. Otherwise it is a ( list of ) IP addresses then 
