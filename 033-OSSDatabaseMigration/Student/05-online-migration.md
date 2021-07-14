@@ -23,8 +23,8 @@ To simplify MySQL data-in replication, you can use the public IP of the MySQL da
 ## Hints -- PostgreSQL
 
 * Use the Premium version of the Azure Database Migration Service for migrating PostgreSQL.
-* Put the Azure Database Migration Service in its own subnet inside the same VNet that on-prem AKS uses - "OSSDBMigrationNet". This way it can connect to the source database using the database container(s) private IP address.
-* To find out the private IP address for the PostgreSQL On-Prem 
+* Put the Azure Database Migration Service in its own subnet inside the same VNet that "on-prem" AKS uses: "OSSDBMigrationNet". This way it can connect to the source database using the database container(s) private IP address.
+* To find out the private IP address for the PostgreSQL running in the database container:
 
 ```bash
 
