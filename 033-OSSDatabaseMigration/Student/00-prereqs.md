@@ -21,7 +21,8 @@ Some GUI tools which run on Windows/Mac include:
 
 [MySQL Workbench](https://www.mysql.com/products/workbench/) - MySQL only
 
-[Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) - PostgreSQL (with PostgreSQL extension) but MySQL is currently not supported
+[Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) - PostgreSQL only (with PostgreSQL extension, besides SQL server)
+
 
 As an alternative to Azure Cloud Shell, this hackathon can also be run from your computer's shell. You can use the Windows Subsystem for Linux (WSL2), Linux Bash or Mac Terminal. While Linux and Mac include Bash and Terminal out of the box respectively, on Windows you will need to install the WSL: [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
