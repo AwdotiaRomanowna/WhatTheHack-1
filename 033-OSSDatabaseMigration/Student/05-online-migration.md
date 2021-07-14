@@ -39,7 +39,11 @@ kubectl describe service -n postgresql postgres-external | grep Endpoints
 ## Hints -- MySQL
 
 
-* For MySQL, the tutorial mentions dropping foreign keys on the target database. You will not be able to run the script as is in that article. You will need to replace `KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName'` with `KCU.REFERENCED_TABLE_SCHEMA = 'wth'`
+* For MySQL, use data-in [replication](https://docs.microsoft.com/en-us/azure/mysql/concepts-data-in-replication)
+* Use Public IP address for the replication
+* "GTID Mode" parameters have 4 possible values and it can only be changed from one to its adjacent value on either sides ( OFF <---> OFF_PERMISSIVE <---> ON_PERMISSIVE
+<---> ON )
+
 
 ## References
 
