@@ -9,9 +9,9 @@ It's time to set up your "on-premises" environment first.
 
 ### Decide how you want to deploy and manage the resources in these challenges
 
-Before starting the challenges, you should decide how you want to deploy and manage the resources in these challenges.
+Before starting, you should decide how you want to deploy and manage the resources in these challenges.
 
-You will need a Unix/Linux shell to execute the commands for these challenges. Azure Cloud Shell (using Bash) provides a convenient shell environment with all of the tools you will need to run these challenges already included such as the Azure CLI, kubectl, helm, MySQL and PostgreSQL client tools, and editors such as vim, nano, code, etc. While it is possible to run the entire hacakathon using CLI tools from  Azure Cloud Shell only, it may be convenient for you to install some GUI tools on your own computer for accessing the MySQL/PostgreSQL databases for running database queries or changing data. If you feel less comfortable working from the command line, you may wish to do this. Some common database GUI tools are listed below. You can choose which tools to use or use only Azure Cloud Shell. 
+You will need a Unix/Linux shell to execute the commands for these challenges. Azure Cloud Shell (using Bash) provides a convenient shell environment with all of the tools you will need to run these challenges already included such as the Azure CLI, kubectl, helm, MySQL and PostgreSQL client tools, and editors such as vim, nano, code, etc. While it is possible to run the entire hacakathon using CLI tools from the Azure Cloud Shell only, it may be convenient for you to install some GUI tools on your own computer for accessing the MySQL/PostgreSQL databases for running database queries or changing data. If you feel less comfortable working from the command line, you may wish to do this. Some common database GUI tools are listed below. You can choose which tools to use or use only Azure Cloud Shell. 
 
 Some GUI tools which run on Windows/Mac include:
 
@@ -68,7 +68,7 @@ chmod +x ./*.sh
 
 #### NOTE: deploying the Pizzeria application will take around 5 minutes
 
-   - Once the applications are deployed, you will see links to two web sites with different IP address running on ports 8081 and 8082, respectively. In Azure Cloud Shell, these are clickable links. Otherwise, you can cut and paste each URL in your web browser to ensure that it is running. 
+   - Once the applications are deployed, you will see links to two web sites with different IP addresses running on ports 8081 and 8082, respectively. In Azure Cloud Shell, these are clickable links. Otherwise, you can cut and paste each URL in your web browser to ensure that it is running. 
 ```bash
       Pizzeria app on MySQL is ready at http://some_ip_address:8081/pizzeria      
       Pizzeria app on PostgreSQL is ready at http://some_other_ip_address:8082/pizzeria
@@ -85,14 +85,14 @@ chmod +x ./*.sh
 
 #### If you are running this hack from Azure Cloud Shell and you also want to connect to the Azure databases from your own computer using the GUI tools mentioned above like MySQL Workbench or Pgadmin, then you will need to edit the script file and change the line with "my_ip" to your computer's IP address. This will add your computer's IP address to the NSG rule as an allowed IP address (as well as allowing Azure Cloud Shell's public IP address)
 
-#### If your Shell IP address is already white-listed and you run this script again, it does not make any changes.
+#### If your Shell IP address is already whitelisted and you run this script again, it does not make any changes.
 
 ## Success Criteria
 
 * You have a Unix/Linux Shell for setting up the Pizzeria application (e.g. Azure Cloud Shell, WSL2 bash, Mac zsh etc.)
 * You have validated that the Pizzeria applications (one for PostgreSQL and one for MySQL) are working
 * [Optional] You have database management GUI tools for PostgreSQL and MySQL installed on your computer and are able to connect to the PostgreSQL and MySQL databases.
-* Once connected to the database, explore the "wth" database used for the application by selecting on some tables to ensure data is present 
+* Once connected to the database, explore the "wth" database used for the application by running SELECT statements on some tables to ensure data is present 
 
 
 ## Hints
