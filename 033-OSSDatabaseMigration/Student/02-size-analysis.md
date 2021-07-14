@@ -8,7 +8,7 @@ Determine the CPU/memory configuration, database I/O and file size, and map to a
 
 ## Description
 
-In this challenge you'll determine the CPU/memory configuration, database I/O and database file size required, and map it to an equivalent size in Azure. Since our pizza website is not being used for real transactions, you will run a synthetic benchmark to simulate I/O for the database. The commands to run the synthetic workload is given below. While the workload is running, you will watch the utilization of the cpu, memory and based on that, detetmine the size of the Azure database to be created to migrate to.
+In this challenge you'll determine the CPU/memory configuration, database I/O and database file size required, and map it to an equivalent size in Azure. Since our pizza website is not being used for real transactions, you will run a synthetic benchmark to simulate I/O for the database. The commands to run the synthetic workload are given below. While the workload is running, you will watch the utilization of the CPU, memory and based on what you observe, determine the size of the Azure database to be created.
 
 To run the synthetic benchmark for PostgreSQL:
 * Create a database in your on-premises database called samples
@@ -42,7 +42,7 @@ mysqlslap -u root -p --concurrency=140 --iterations=50 --number-int-cols=10 --nu
 
 ```
 
-* Stress test for Postgres - create benchmark objects in the database and run a synthetic workload for 5 minutes
+* Stress test for PostgreSQL - create benchmark objects in the database and run a synthetic workload for 5 minutes
 
 ```bash
     pgbench -i  -h localhost -U postgres -d samples

@@ -3,7 +3,7 @@
 [< Previous Challenge](./03-offline-migration.md) - **[Home](../README.md)** - [Next Challenge >](./05-online-migration.md)
 
 ## Introduction
- Reconfigure the application to use the appropriate connection string and validate that the application is working
+ Reconfigure the application to use the appropriate connection string that uses Azure DB and validate that the application is working
 
 ## Description
 You will reconfigure the application to use a connection string that points to the Azure DB for PostgreSQL/MySQL. You will need to update the ContosoPizza/values-mysql.yaml or ContosoPizza/values-postgresql.yaml values file with the updated values for dataSourceURL, dataSourceUser and dataSourcePassword using the appropriate Azure DB values for PostgreSQL/MySQL:
@@ -56,3 +56,6 @@ Wait for a minute or two until the status field for the command of kubectl is  "
 start building any pizza, and on the next page, click "Veggies" and at the lower left corner, see that "Shallot" appears with the picture of the onion.
 
 
+## References
+
+* [How to connect applications to Azure Database for MySQL](https://docs.microsoft.com/en-us/azure/mysql/howto-connection-string)
