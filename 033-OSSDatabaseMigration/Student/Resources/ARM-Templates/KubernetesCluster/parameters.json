@@ -27,7 +27,7 @@
         "value": 1
       },
       "agentPoolNodeType": {
-        "value": "Standard_D4s_v4"
+        "value": "Standard_D2s_v4"
       },
       "location": {
         "value": "westus"
