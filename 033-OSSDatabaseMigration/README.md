@@ -50,7 +50,6 @@ The participants will learn how to:
    - Pizzeria application environment setup
 
 ## Contributors
-- Brian Hitney
 - Daniel Kondrasevich
 - Israel Ekpo
 - Pete Rodriguez

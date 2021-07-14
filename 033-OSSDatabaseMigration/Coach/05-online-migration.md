@@ -12,7 +12,7 @@ Perform an online migration using the Azure Database Migration Service
 
 ## Steps -- PostgreSQL
 
-Connect to the database container and run the export:
+Connect to the database container and run the export on the source database :
 
 ```bash
 kubectl -n postgresql exec deploy/postgres -it -- bash
@@ -20,25 +20,30 @@ kubectl -n postgresql exec deploy/postgres -it -- bash
 pg_dump -o -h localhost -U contosoapp -d wth -s >dump_wth.sql
 ```
 
-This creates a psql dump text file. We need to import it to the target - schema only. It is suggested to create a separate database for online migration. Alternatively, you can drop and re-create the wth database.
+This creates a psql dump text file. We need to import it to the target - schema only. It is suggested to create a separate database for online migration - wth2. 
 
-To drop all the tables with indexes
+Alternatively, you can drop all the tables and indices and re-create just the tables.
+
+To drop all the tables with indexes, the following SQL script creates a file called drop_tables.sql which you can run in the next step to execute in SQL to drop the tables and indices.
 
 ```bash
+
+\c wth
 \out drop_tables.sql
 
 select 'drop table ' || tablename || ' cascade;'  from pg_tables where tableowner = 'contosoapp' and schemaname = 'public' ;
+
 ```
 
-To import the schema only to target using psql
+Now execute the drop_tables.sql script in SQL
 
-```bash
-$ psql -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget  -d wth <dump_wth.sql
+```sql
 
-postgres=> create database wth
+\i drop_tables.sql
+
 ```
 
-Import the schema to target
+Next, import the schema to target
 
 ```bash
 psql -h pgtarget.postgres.database.azure.com -U contosoapp@pgtarget -d wth < dump_wth.sql
@@ -151,72 +156,14 @@ WHERE constraint_type = 'FOREIGN KEY'
 
 ## Steps -- MySQL
 
-Run the export:
+The MySQL data-in replication is initiated on Azure Database for MySQL, and it "pulls" data from on-premise and as such the source database needs to have Azure database for  MuSQL IP address whitelisted. 
 
-```bash
+The database tier has to be standard or memory optimized for the replication to work.
 
- mysqldump -h <container ip> -u contosoapp -p --set-gtid-purged=off --databases wth --no-data  --skip-column-statistics >dump_nodata.sql
+The default gtid_mode in source database is ON and on Azure DB for MySQL is Off. Both sides have to match before starting replication.
+In the challenge database since it is quiet and no transaction is taking place, following the MySQL [documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-mode-change-online-disable-gtids.html) one can change the parameter without stopping replication.
 
-```
 
-Import with no data. Create the wth database:
 
-```bash
 
-mysql -h mytarget2.mysql.database.azure.com -u contosoapp@mytarget2 -p wth <dump_nodata.sql
-
-```
-
-Run script on the target to drop all the foreign keys:
-
-```bash
-drop_fk_query.sql
-```
-
-```sql
- SET group_concat_max_len = 8192;
- SELECT GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery
-    FROM
-    (SELECT
-            KCU.REFERENCED_TABLE_SCHEMA as SchemaName,
-            KCU.TABLE_NAME,
-            KCU.COLUMN_NAME,
-            CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery
-            FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC
-            WHERE
-              KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
-              AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-          AND KCU.REFERENCED_TABLE_SCHEMA = 'wth') Queries
-  GROUP BY SchemaName
-
-```
-
-  Run the script and store the output to a file. Running this the following way requires to format the file again:
-
-```bash
-
- mysql -h mytarget2.mysql.database.azure.com -u contosoapp@mytarget2 -pOCPHack8 wth <drop_fk_query.sql >drop_fk.sql
- cat drop_fk.sql | sed 's/\\n/\n/g' | sed '/DropQuery/d' >drop.sql
-
- ```
- Run the sql script to drop all the FKs:
-
- ```sql
-
- source drop.sql
-
- ```
-
- Grant replication client and save to contosoapp user for DMS online migration:
-
- ```sql
-
-  grant replication slave on *.* to 'contosoapp' ;
-  grant replication client on *.* to 'contosoapp' ;
-
- ```
-
- If the copy fails during the DMS online copy with an error message like "Migrating data to a mysql other than Azure DB for MySQL is not supported", it is because the user connecting to the target database does not have enough privileges on MySQL. The exact minimum set of privileges is TBD but this works as a workaround. This screenshot from MySQL Workbench shows the privileges that are required:
- 
- ![MySQL Workbench Privileges](./workbench.png)
 

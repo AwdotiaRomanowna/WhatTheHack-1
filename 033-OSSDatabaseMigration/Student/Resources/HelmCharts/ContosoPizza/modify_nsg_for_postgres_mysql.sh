@@ -39,13 +39,13 @@ then
 fi
 
 
-if [ "$existing_pg_source_ip_allowed" = "*" ]
+if [ "$existing_pg_source_ip_allowed" = "Internet" ]
 then
    existing_pg_source_ip_allowed="0.0.0.0"
 fi
 
 # if the existing source ip allowed is open to the world - then we need to remove it first. Otherwise it is a ( list of ) IP addresses then 
-# we append to it another IP address. Open the world is 0.0.0.0 or 0.0.0.0/0 .
+# we append to it another IP address. Open the world is 0.0.0.0 or 0.0.0.0/0. 
 
 
 existing_my_source_ip_allowed_prefix=`echo $existing_my_source_ip_allowed | cut  -d "/" -f1`
