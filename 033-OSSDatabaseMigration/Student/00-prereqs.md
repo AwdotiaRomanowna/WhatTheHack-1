@@ -80,9 +80,11 @@ chmod +x ./*.sh
 
 #### NOTE:  This script will restrict public access to your "on prem" MySQL or PostgreSQL database that are used for the pizza app. The script is written to obtain your public IP address automatically depending on where you run it (either locally on your own computer or within Azure Cloud Shell).
 
-#### If you are running in Azure Cloud Shell, keep in mind that Azure Cloud Shell times out after 20 minutes of inactivity. If you start a new Azure Cloud Shell session, it will have a different public IP address and you will need to run the NSG script again to allow the new public IP address to access your database containers. 
+#### If you are running in Azure Cloud Shell, keep in mind that Azure Cloud Shell times out after 20 minutes of inactivity. If you start a new Azure Cloud Shell session, it will have a different public IP address and you will need to run the NSG script again to allow the new public IP address to access your databases. 
 
 #### If you are running this hack from Azure Cloud Shell and you also want to connect to the Azure databases from your own computer using the GUI tools mentioned above like MySQL Workbench or Pgadmin, then you will need to edit the script file and change the line with "my_ip" to your computer's IP address. This will add your computer's IP address to the NSG rule as an allowed IP address (as well as allowing Azure Cloud Shell's public IP address)
+
+#### If your Shell IP address is already white-listed and you run this script again, it does not make any changes.
 
 ## Success Criteria
 
