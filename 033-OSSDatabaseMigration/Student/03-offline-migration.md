@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Create an appropriate PaaS database service based on previous challenge in Azure and copy the Pizzeria application data to Azure. 
+Deploy an appropriate Azure DB service based on what you determined and observed in previous challenges and then copy the Pizzeria database(s) to Azure. 
 You are not required to reconfigure the application to Azure DB for PostgreSQL/MySQL in this challenge as you will do that in the next one. 
 
 ## Description
