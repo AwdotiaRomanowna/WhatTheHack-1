@@ -32,7 +32,7 @@ If you choose to run it from your computer, you need to install the following to
 - Kubectl (using `az aks install-cli`)
 - [Helm3](https://helm.sh/docs/intro/install/) 
 - MySQL command line client tool (or GUI tool mentioned above)
-- PostgreSQL command lin client tool (or GUI tool mentioned above)
+- PostgreSQL command line client tool (or GUI tool mentioned above)
 
 
 You should carefully consider how much time you will need to install these tools on your own computer. Depending on your Internet and computer's speed, this additional local setup will probably take around 30-60 minutes. You will also need a text editor of your choice if it is not already installed. 
