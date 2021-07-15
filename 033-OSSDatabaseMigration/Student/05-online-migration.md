@@ -40,6 +40,7 @@ kubectl describe service -n postgresql postgres-external | grep Endpoints
 * For MySQL, use data-in [replication](https://docs.microsoft.com/en-us/azure/mysql/concepts-data-in-replication)
 * Use the public IP address for Azure DB for MySQL for the replication
 * "GTID Mode" parameters have 4 possible values and can only be changed from one to its adjacent value on either side ( OFF <---> OFF_PERMISSIVE <---> ON_PERMISSIVE
+* SSL is not required for this hackathon for the data-in replication
 <---> ON )
 
 
