@@ -6,7 +6,7 @@
 
 * If using MySQL Workbench tool to migrate mysql database, make sure to use the "MySQL Workbench Migration Wizard". This is available under the "home icon" as shown [here](./mysql_workbench_migration_wizard.jpg) 
 
-* SQL command to change ingredient table value - MySQL
+* This is the SQL command to change the ingredient table value - MySQL
 
 ```sql
 
