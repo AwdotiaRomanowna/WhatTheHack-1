@@ -156,12 +156,12 @@ WHERE constraint_type = 'FOREIGN KEY'
 
 ## Steps -- MySQL
 
-The MySQL data-in replication is initiated on Azure Database for MySQL, and it "pulls" data from on-premise and as such the source database needs to have Azure database for  MuSQL IP address whitelisted. 
+The MySQL data-in replication is initiated from Azure DB for MySQL and pulls data from on-premises. As such the source database's public IP address needs to be whitelisted. 
 
 The database tier has to be standard or memory optimized for the replication to work.
 
-The default gtid_mode in source database is ON and on Azure DB for MySQL is Off. Both sides have to match before starting replication.
-In the challenge database since it is quiet and no transaction is taking place, following the MySQL [documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-mode-change-online-disable-gtids.html) one can change the parameter without stopping replication.
+The default gtid_mode in the source database is ON and in Azure DB for MySQL it is Off. Both sides have to match before starting replication.
+Since the wth database used for the challenges is not seeing a lot of transactions, the attendees can follow the MySQL [documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-mode-change-online-disable-gtids.html) to change the parameter without stopping replication.
 
 
 
