@@ -13,9 +13,7 @@ There are a lot of opportunities for things to go wrong in this step especially 
 
     The location may also potentially need to be made unique if you are getting errors related to quota.
 
-*  Even though it's commented out, the AKS CLI tools may need to be installed if the attendee is not using Azure Cloud Shell
-
-* Both the Azure CLI and Helm will need to be installed. These are included with Azure Cloud Shell but will need to be downloaded separately otherwise
+* Azure CLI, AKS CLI and Helm will need to be installed. These are included with Azure Cloud Shell but will need to be downloaded separately if not using Cloud Shell.
 
 * Attendees should not be using the public IP address of the PostgreSQL/MySQL containers when configuring the application.
 
