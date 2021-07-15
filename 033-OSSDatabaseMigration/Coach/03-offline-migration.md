@@ -4,20 +4,20 @@
 
 ## Coach Tips
 
-1. When creating Azure DB for PostgreSQL/MySQL, create it in the GP or MO tier - as Basic tier does not support Private Link, required in a future challenge.
+1. When creating Azure DB for PostgreSQL/MySQL, create it in the GP or MO tier since the Basic tier does not support Private Link which is required in a future challenge.
 
-2. If the attendees want to connect to Azure DB for PostgreSQL/MySQL from within the AKS PostgreSQL/MySQL, they have two optoins.
+2. If the attendees want to connect to Azure DB for PostgreSQL/MySQL from within the AKS PostgreSQL/MySQL database containers, they have two options.
 
      a)  Either under connection security, check the box for "Allow access to Azure services" 
 
                    or
 
     b) Add the public IP address of the container to the DB firewall.  This is the IP address the container is using for egress to connect to Azure DB. 
-    In order to find that IP address, you can try to connect to the Azure DB from your container and the error message will tell you the IP.  
+    In order to find that IP address, they can try to connect to the Azure DB from the container and the error message will tell them the IP address.  
     
 ### MySQL -- Important 
  
-3. Participants using cloud shell and using mysql client on the cloud shell is using MariaDB mysql client, not the regular one from Oracle.  To connect to your Azure MySQL database, you have to add the flag "--ssl" at the end. If you are running it on WSL/Ubuntu or Mac Shell and using Oracle MySQL client, the "--ssl" flag is not required.
+3. Participants using Azure Cloud Shell and using the mysql client tool are using the MariaDB mysql client, not the one from Oracle.  To connect to your Azure MySQL database, you have to add the flag "--ssl" at the end. If they are running it on WSL/Ubuntu or Mac Terminal and using the Oracle MySQL client, the "--ssl" flag is not required.
 
 ```bash
 
@@ -36,7 +36,7 @@ Client with IP address '104.42.36.255' is not allowed to connect to this MySQL s
 
 ```
 
-Similarly for Postgres
+Similarly for PostgreSQL
 
 ```bash
  kubectl -n postgresql exec deploy/postgres -it -- bash
@@ -54,10 +54,10 @@ apt install curl
 curl ifconfig.me
 ```
 
-3. There are other 3rd party tools similar to MySQL Workbench, PgAdmin and dbeaver which the attendees may choose to migrate the data if they are familiar with them. There is also [mydumper/myloader](https://centminmod.com/mydumper.html) to use for MySQL
+3. There are other 3rd party tools similar to MySQL Workbench, pgAdmin and dbeaver which the attendees may choose to migrate the data if they are familiar with them. There is also [mydumper/myloader](https://centminmod.com/mydumper.html) to use for MySQL.
 
 
-4. Before migrating the data, they need to create an empty database and create the application user.The SQL command to create the database is given below if you are using cli
+4. Before migrating the data, they need to create an empty database and create the application user. The SQL command to create the database is given below if they are using the CLI
 
 
 
@@ -65,9 +65,9 @@ curl ifconfig.me
 create database wth ;
 ```
 
-5. After creating the database you need to create the database user "contosoapp" that will own the database objects. Connect using the dba account and then create the user and grant it privileges:
+5. After creating the database they need to create the database user "contosoapp" that will own the database objects. Connect using the dba account and then create the user and grant it privileges:
 
-Postgres Command -->
+PostgreSQL Command -->
 
 ```sql
 CREATE ROLE CONTOSOAPP WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD 'OCPHack8';
@@ -98,13 +98,13 @@ GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'
 ```
 
 
-6. Next step is to run a database export from the source database and import into Azure DB. 
+6. The next step is to run a database export from the source database and import into Azure DB. 
 
-**Postgres Export Import Commands**
+**PostgreSQL Export Import Commands**
 
 * PostgreSQL command to do offline export to exportdir directory and import offline to Azure DB for PostgreSQL. First bash into the PostgreSQL container and then use these two commands.
 
-*Make sure to run the data import uses the contosoapp database account*
+*Make sure to run the data import using the contosoapp database account*
 
 ```bash
  kubectl -n postgresql exec deploy/postgres -it -- bash
@@ -116,7 +116,7 @@ GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'
 
  Alternatively, do this from command prompt of the MySQL container
 
-*Make sure to run the data import uses the contosoapp database account*
+*Make sure to run the data import using the contosoapp database account*
 
 
  ```bash
