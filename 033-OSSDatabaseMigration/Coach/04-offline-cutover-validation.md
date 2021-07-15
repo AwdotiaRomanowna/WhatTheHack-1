@@ -15,7 +15,7 @@ update ingredient set name = 'Shallot' where name = 'Onion' ;
 
 ```
 
-* SQL command to change ingredient table value - Postgres
+* SQL command to change ingredient table value - PostgreSQL
 
 ```sql
 
