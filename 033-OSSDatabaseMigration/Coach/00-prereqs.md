@@ -27,15 +27,11 @@ There are a lot of opportunities for things to go wrong in this step especially 
     kubectl -n {infrastructure.namespace goes here} logs deploy/contosopizza
 ```
 
-* Google ReCaptcha will not work by default which means they will not be able to register as a user in the application. The attendee will need to generate their own. The instructions are here: https://github.com/pzinsta/pizzeria. The IP address for each web application will need to be registered as a domain in Google reCaptcha. 
+* [Optional] Google ReCaptcha will not work by default which means they will not be able to register as a user in the application. The attendee will need to generate their own. The instructions are here: https://github.com/pzinsta/pizzeria. The IP address for each web application will need to be registered as a domain in Google reCaptcha. 
 
-* The approximate cost for this hack is about $15/day:
-    AKS: $90/month
-    Azure DB for MySQL: $153/month
-    Azure DB for PostgreSQL: $139/month
-
-    Total: $382/month (or $13/day + any incidental charges for storage, private endpoints, etc.)
-
+* The approximate cost for this hack is about $9/day in two resource groups that the hackathon creates.
+    
+    
 * This hack can be done in an Azure trial account (one attendee per Azure trial). However, Microsoft anti-fraud detection may prevent multiple Azure trial subscriptions from being created in the same network location. Also, each attendee will need a working credit card to setup an Azure trial subscription (even though the card will not be charged).
 
 
