@@ -4,12 +4,12 @@
 
 ## Coach Tips
 
-* The attendees should check the links given in Reference section about Limitations to figure out if the source database can be moved to Azure. Note - we only need to check the wth database that hosts the application data
+* The attendees should check the links given in Reference section about Limitations to figure out if the source database can be moved to Azure. Note: we only need to check the wth database that hosts the application data
 
 
 
 
-* To connect to PostgreSQL, run this from Azure Cloud Shell or from your computer to connect using the psql command line tool. Alternatively, you can use a tool like Azure Data Studio or pgAdmin or DBeaver
+* To connect to PostgreSQL, run this from Azure Cloud Shell or from your computer to connect using the psql command line tool. Alternatively, you can use a tool like Azure Data Studio, pgAdmin or DBeaver
 
 
 
@@ -35,7 +35,7 @@
    
    
    
-   * To connect to MySQL, run this from Azure Cloud Shell or from your computer to connect using the mysql command line. Alternately you can use a tool like MySQL Workbench or DBeaver
+   * To connect to MySQL, run this from Azure Cloud Shell or from your computer to connect using the mysql command line. Alternatively, you can use a tool like MySQL Workbench or DBeaver
 
 
 
