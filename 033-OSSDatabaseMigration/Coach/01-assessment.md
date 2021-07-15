@@ -9,7 +9,7 @@
 
 
 
-* To connect to Postgres, run this from Azure cloud shell or from your computer to connect using psql commandline. Alternately you can use a tool like Azure Data Studio or Pgadmin or DBeaver
+* To connect to PostgreSQL, run this from Azure Cloud Shell or from your computer to connect using the psql command line tool. Alternatively, you can use a tool like Azure Data Studio or pgAdmin or DBeaver
 
 
 
@@ -20,7 +20,7 @@
     
     
     
-* The SQL below lists the Postgres version, database size and the loaded extensions
+* The SQL below lists the PostgreSQL version, database size and the loaded extensions
 
 
  
@@ -35,7 +35,7 @@
    
    
    
-   * To connect to MySQL, run this from Azure cloud shell or from your computer to connect using mysql commandline. Alternately you can use a tool like MySQL Workbench or DBeaver
+   * To connect to MySQL, run this from Azure Cloud Shell or from your computer to connect using the mysql command line. Alternately you can use a tool like MySQL Workbench or DBeaver
 
 
 
@@ -45,7 +45,7 @@
 
 
 
-    * In MySQL check the db version, what engine tables we have and total database size ( tables only, excluding index )
+    * In MySQL check the db version, what engine tables we have and the total database size (tables only, excluding index)
 
 
     
