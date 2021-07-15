@@ -4,7 +4,7 @@
 
 ## Coach Tips
 
-The intent of this WTH is not to focus on networking so if the attendee has trouble configuring VPN/VNET peering, feel free to help them through it. 
+The intent of this WTH is not to focus on networking so if the attendee has trouble configuring VPN/VNet peering, feel free to help them through it. 
 
 ## Introduction
 
