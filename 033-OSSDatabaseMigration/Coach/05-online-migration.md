@@ -28,7 +28,8 @@ To drop all the tables with indexes, the following SQL script creates a file cal
 
 ```bash
 
-\c wth
+psql -h pgtarget.postgres.database.azure.com -U contosoapp@pgtarget -d wth 
+
 \t
 \out drop_tables.sql
 
