@@ -38,10 +38,10 @@ kubectl describe service -n postgresql postgres-external | grep Endpoints
 
 
 * For MySQL, use data-in [replication](https://docs.microsoft.com/en-us/azure/mysql/concepts-data-in-replication)
-* This is a "pull" replication where Azure DB for MySQL connects to source to copy data.
+* This is a "pull" replication where Azure DB for MySQL connects to the source to copy data.
 * Use the public IP address for Azure DB for MySQL for the replication
-* "GTID Mode" parameters have 4 possible values and can only be changed from one to its adjacent value on either side ( OFF <---> OFF_PERMISSIVE <---> ON_PERMISSIVE <--> ON
-* "GTID Mode" - it is easier to change on the source side to match with Azure MySQL
+* "GTID Mode" parameters have 4 possible values and can only be changed from one to its adjacent value on either side (OFF <---> OFF_PERMISSIVE <---> ON_PERMISSIVE <--> ON)
+* "GTID Mode" - it is easier to change on the source side to match with Azure DB for MySQL
 * SSL is not required for this hackathon for the data-in replication
 * To find out the private IP address for the MySQL running in the database container:
 
