@@ -29,6 +29,7 @@ To drop all the tables with indexes, the following SQL script creates a file cal
 ```bash
 
 \c wth
+\t
 \out drop_tables.sql
 
 select 'drop table ' || tablename || ' cascade;'  from pg_tables where tableowner = 'contosoapp' and schemaname = 'public' ;
@@ -61,6 +62,7 @@ Verify count of tables and indexes created on the target database from psql. 26 
 [Disabling Foreign Keys in Azure DMS](https://docs.microsoft.com/en-us/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) shows more results than needed. It can be simplified by saving the output of a SQL command that just drops the constraints. From psql, do this:
 
 ```bash
+\t
 \out drop_fk.sql
 ```
 
@@ -106,6 +108,7 @@ Run the file:
 There is no trigger in the application schema. It is still a best practice to check for it:
 
 ```sql
+\t
 \out drop_trigger.sql
 SELECT DISTINCT CONCAT('ALTER TABLE ', event_object_schema, '.', event_object_table, ' DISABLE TRIGGER ', trigger_name, ';')
 FROM information_schema.triggers
@@ -122,6 +125,7 @@ postgres=# alter role contosoapp with replication ;
 * In DMS, if the attendee gets a connection error when trying to connect to the target service, check "Allow access to Azure Services" in the Azure Portal for the database. After migration, do a cutover and re-enable the foreign keys. Run the following on the source and run it on the target after cleaning the header:
 
 ```sql
+\t
 \out enable_fk.sql
 
 SELECT CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' ADD CONSTRAINT ', foreignkey, ' FOREIGN KEY (', column_name, ')', ' REFERENCES ', foreign_table_schema, '.', foreign_table_name, '(', foreign_column_name, ')' ), ','), ';') as AddQuery
