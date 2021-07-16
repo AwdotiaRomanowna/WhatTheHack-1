@@ -12,7 +12,7 @@ Perform an online migration using the Azure Database Migration Service
 
 ## Steps -- PostgreSQL
 
-Connect to the database container and run the export on the source database :
+Connect to the *source* database container and run the export on the source database :
 
 ```bash
 kubectl -n postgresql exec deploy/postgres -it -- bash
@@ -20,7 +20,7 @@ kubectl -n postgresql exec deploy/postgres -it -- bash
 pg_dump -o -h localhost -U contosoapp -d wth -s >dump_wth.sql
 ```
 
-This creates a psql dump text file. We need to import it to the target - schema only. It is suggested to create a separate database for online migration - wth2. 
+This creates a psql dump text file. We need to import it to the *target*. We import the schema only. It is suggested to create a separate database for online migration - wth2. 
 
 Alternatively, you can drop all the tables and indices and re-create just the tables.
 
