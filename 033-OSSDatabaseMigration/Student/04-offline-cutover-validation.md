@@ -24,8 +24,9 @@ helm upgrade --install mysql-contosopizza ./ContosoPizza -f ./ContosoPizza/value
 kubectl -n contosoappmysql rollout restart deployment contosopizza
 ```
 
-Wait for a minute or two until the status field for the kubectl command below is  "Running" and "READY" state is "1/1"
-Status field changes from "Terminating" to "ContainerCreating" and then to "Running"
+Wait for a minute or two until the status field for the kubectl command below is  "Running" and "READY" state is "1/1".
+
+Status field changes from "Terminating" to "ContainerCreating" and then to "Running".
 
 ```bash
 
@@ -42,8 +43,9 @@ kubectl -n contosoapppostgres rollout restart deployment contosopizza
 ```
 
 
-Wait for a minute or two until the status field for the command of kubectl is  "Running" and "READY" state is "1/1"
-Status field changes from "Terminating" to "ContainerCreating" and then to "Running"
+Wait for a minute or two until the status field for the command of kubectl is  "Running" and "READY" state is "1/1".
+
+Status field changes from "Terminating" to "ContainerCreating" and then to "Running".
 
 ```bash
 
