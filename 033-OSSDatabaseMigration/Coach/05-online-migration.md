@@ -162,6 +162,8 @@ The database tier has to be standard or memory optimized for the replication to 
 
 The attendees have to login to MySQL with the user they created when they set up Azure DB for MySQL to setup the replication using the mysql.az_replication_change_master stored procedure. 
 
+The values for master_log_file and master_log_pos need to be retrieved using `show master status` on the source server not on Azure DB for MySQL. 
+
 The default gtid_mode in the source database is ON and in Azure DB for MySQL it is Off. Both sides have to match before starting replication.
 Since the wth database used for the challenges is not seeing a lot of transactions, the attendees can follow the MySQL [documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-mode-change-online-disable-gtids.html) to change the parameter without stopping replication.
 
