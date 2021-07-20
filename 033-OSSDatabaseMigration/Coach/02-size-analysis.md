@@ -34,11 +34,37 @@ kubectl -n postgresql exec deploy/postgres -it -- bash
     pgbench -i  -h localhost -U postgres -d samples
 ```
 * Run a synthetic workload for 5 minutes and watch the system load from another bash prompt using unix tools while it is running:
+
+
 ```bash
     pgbench -c 500 -j 40 -T 300 -h localhost -U postgres -d samples
 ```
+
+* While the synthetic workload is running, to watch the system load run htop from another bash shell to monitor load on the container:
+
+
+```bash
+
+    kubectl -n postgresql exec deploy/postgres -it -- bash
+    htop
+```
+
+
+
 * To run the synthetic benchmark for MySQL:
-    Connect to the on-premises MySQL database container and use mysqlslap tool:
+
+* To check the CPU count and memory on the server you can use for instance:
+
+```bash
+kubectl -n mysql exec deploy/mysql -it -- bash
+
+ #CPU count
+ grep processor /proc/cpuinfo | wc -l
+ 
+ ```
+ 
+ To run a synthetic workload, connect to the on-premises MySQL database container and use mysqlslap tool:
+ 
 ```bash
 
     kubectl -n mysql exec deploy/mysql -it -- bash
@@ -46,3 +72,12 @@ kubectl -n postgresql exec deploy/postgres -it -- bash
     apt update ; apt install htop
     mysqlslap -u root -pOCPHack8 --concurrency=140 --iterations=50 --number-int-cols=10 --number-char-cols=20 --auto-generate-sql
 ```
+
+Then run the htop command from another bash shell
+
+```bash
+
+    kubectl -n mysql exec deploy/mysql -it -- bash
+    htop
+```
+
