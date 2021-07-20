@@ -15,7 +15,7 @@
 
 
     ```bash
-    kubectl -n postgresql exec deploy/postgres -it -- /usr/bin/psql -U postgres
+    kubectl -n postgresql exec deploy/postgres -it -- /usr/bin/psql -U postgres wth
     ```
     
     
