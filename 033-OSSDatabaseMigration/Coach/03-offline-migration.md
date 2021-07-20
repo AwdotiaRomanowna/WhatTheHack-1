@@ -73,6 +73,12 @@ PostgreSQL Command -->
 CREATE ROLE CONTOSOAPP WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD 'OCPHack8';
 ```
 
+alternatively, from bash use pg_dumpall binary:
+
+```sh
+pg_dumpall -r | psql -h pgtarget.postgres.database.azure.com -p 5432 -U serveradmin@pgtarget postgres
+```
+
 MySQL command --->
 
 ```sql
@@ -108,8 +114,8 @@ GRANT ALL PRIVILEGES ON `wth`.* TO 'contosoapp'@'%'
 
 ```bash
  kubectl -n postgresql exec deploy/postgres -it -- bash
- pg_dump -C -Fd  wth -j 4 -f exportdir -U contosoapp
- pg_restore -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget -d wth -Fd exportdir
+ su - postgres
+ pg_dump wth | psql -h pgtarget.postgres.database.azure.com -p 5432 -U contosoapp@pgtarget wth
 ```
 
 **MySQL Export Import Commands**
