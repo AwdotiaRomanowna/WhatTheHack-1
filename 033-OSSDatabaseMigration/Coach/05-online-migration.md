@@ -39,6 +39,15 @@ select 'drop table ' || tablename || ' cascade;'  from pg_tables where tableowne
 
 ```
 
+Another option to dropping and recreating all the tables is simply drop the database and re-create the database
+
+```sql
+
+drop database wth ;
+
+create database wth ;
+
+```
 
 Next, import the schema to target
 

@@ -15,7 +15,7 @@
 
 
     ```bash
-    kubectl -n postgresql exec deploy/postgres -it -- /usr/bin/psql -U postgres
+    kubectl -n postgresql exec deploy/postgres -it -- /usr/bin/psql -U postgres wth
     ```
     
     
@@ -33,6 +33,15 @@
    SELECT name, default_version, installed_version, left(comment,80) As comment FROM pg_available_extensions WHERE installed_version IS NOT NULL ORDER BY name;
    ```
    
+   Alternate commands to check the database size and installed extensions are:
+   
+   ```sql
+   
+   \l+ wth 
+   
+   \dx
+   
+   ```
    
    
    * To connect to MySQL, run this from Azure Cloud Shell or from your computer to connect using the mysql command line. Alternatively, you can use a tool like MySQL Workbench or DBeaver

@@ -1,5 +1,11 @@
 **[Home](../README.md)**
 
+### Reset Credentials in case you are re-deploying it
+
+```
+az aks get-credentials --name ossdbmigration --resource-group OSSDBMigration
+```
+
 ### Display  all the nodes
 
 ```
